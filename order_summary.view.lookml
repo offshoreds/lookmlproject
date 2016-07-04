@@ -78,7 +78,4 @@
   - measure: Booked_Orders
     type: count
     
-  - measure: count
-    type: count
-    sql: ${TABLE}.revenue
-
+  

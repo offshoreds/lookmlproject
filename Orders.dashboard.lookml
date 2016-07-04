@@ -13,10 +13,10 @@
     type: single_value
     explore: camp_hdr
     dimensions: [order_summary.order_status]
-    measures: [order_summary.count]
+    measures: [order_summary.Booked_Orders]
     filters:
       order_summary.order_status: Inprogress
-    sorts: [order_summary.count desc]
+    sorts: [order_summary.Booked_Orders desc]
     limit: 500
     show_single_value_title: true
     single_value_title: '# Inprogress Orders'
@@ -27,10 +27,10 @@
     type: single_value
     explore: camp_hdr
     dimensions: [order_summary.order_status]
-    measures: [order_summary.count]
+    measures: [order_summary.Booked_Orders]
     filters:
       order_summary.order_status: Pending
-    sorts: [order_summary.count desc]
+    sorts: [order_summary.Booked_Orders desc]
     limit: 500
     show_single_value_title: true
     single_value_title: '# Pending Orders'
@@ -41,10 +41,10 @@
     type: single_value
     explore: camp_hdr
     dimensions: [order_summary.order_status]
-    measures: [order_summary.count]
+    measures: [order_summary.Booked_Orders]
     filters:
       order_summary.order_status: Closed
-    sorts: [order_summary.count desc]
+    sorts: [order_summary.Booked_Orders desc]
     limit: 500
     show_single_value_title: true
     single_value_title: '# Closed Orders'
@@ -53,13 +53,13 @@
   - name: Ontime_delivery_ratio
     type: single_value
     explore: camp_hdr
-    measures: [order_summary.count, order_summary.ONTIME_DELIVERY_ratio]
+    measures: [order_summary.Booked_Orders, order_summary.ONTIME_DELIVERY_ratio]
     dynamic_fields:
     - table_calculation: calculation_1
       label: Calculation 1
-      expression: ${order_summary.ONTIME_DELIVERY_ratio}/${order_summary.count}*100
+      expression: ${order_summary.ONTIME_DELIVERY_ratio}/${order_summary.Booked_Orders}*100
       value_format: 0.00\%
-    hidden_fields: [order_summary.count, order_summary.ONTIME_DELIVERY_ratio]
+    hidden_fields: [order_summary.Booked_Orders, order_summary.ONTIME_DELIVERY_ratio]
     sorts: [calculation_1 desc]
     limit: 500
     show_single_value_title: true
