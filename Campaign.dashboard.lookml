@@ -51,6 +51,14 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+    font_size: medium
+    
     
   - name: Cost_Per_Lead
     type: single_value
@@ -60,6 +68,13 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+    font_size: medium
     
   - name: Customer_Acquisition_Cost
     type: single_value
@@ -69,6 +84,13 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+    font_size: medium
     
   - name: ROI
     type: single_value
@@ -78,6 +100,13 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+    font_size: medium
     
   - name: Top_5_states_By_Opportunity_Revenue
     type: looker_bar
@@ -105,6 +134,13 @@
     x_axis_scale: ordinal
     y_axis_scale_mode: linear
     show_null_labels: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+    font_size: medium
     
   - name: Top_5_states_By_Booked_Revenue
     type: looker_bar
@@ -132,7 +168,14 @@
     x_axis_scale: ordinal
     y_axis_scale_mode: linear
     show_null_labels: false
-
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+    font_size: medium
+    
 
   - name: Campaign_Details
     type: table
@@ -148,5 +191,11 @@
     truncate_column_names: false
     table_theme: editable
     limit_displayed_rows: false
-
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+    font_size: medium
 

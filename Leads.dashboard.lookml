@@ -47,6 +47,13 @@
     show_single_value_title: true
     value_format: '#,###'
     show_comparison: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium
   
   - name: Pending_Leads
     type: single_value
@@ -56,6 +63,13 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium
 
   - name: Total_Qualified_Leads
     type: single_value
@@ -65,7 +79,14 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
-
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium
+    
   - name: Rejected_leads
     type: single_value
     explore: camp_hdr
@@ -74,6 +95,13 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium
     
   - name: Top_5_Leads_By_campaign
     type: looker_bar
@@ -101,6 +129,13 @@
     x_axis_scale: auto
     y_axis_scale_mode: linear
     show_null_labels: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium
     
   - name: Top_5_Leads_By_Objective
     type: looker_bar
@@ -129,7 +164,14 @@
     x_axis_scale: auto
     y_axis_scale_mode: linear
     show_null_labels: false
-
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium
+    
   
   - name: Top_5_Leads_By_Program
     type: looker_bar
@@ -158,7 +200,14 @@
     x_axis_scale: auto
     y_axis_scale_mode: linear
     show_null_labels: false
-
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium
+    
   
   - name: Lead_Details
     type: table
@@ -175,3 +224,10 @@
     truncate_column_names: false
     table_theme: editable
     limit_displayed_rows: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      
+    font_size: medium

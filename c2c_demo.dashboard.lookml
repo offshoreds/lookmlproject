@@ -14,8 +14,30 @@
     - elements: [By_Campaign_Type,By_Segment,By_Objective]
       height: 250
 
-
-#  filters:
+  filters:
+  - name: year
+    title: 'Year'
+    type: field_filter
+    explore: camp_hdr 
+    field: camp_hdr.year
+    
+  - name: quarter
+    title: 'Quarter'
+    type: field_filter
+    explore: camp_hdr 
+    field: campaign_summary.quarter
+    
+  - name: parent campaign
+    title: 'Parent campaign'
+    type: field_filter
+    explore: camp_hdr 
+    field: camp_hdr.parent_campaign
+    
+  - name: campaign
+    title: 'Campaign'
+    type: field_filter
+    explore: camp_hdr 
+    field: camp_hdr.campaign
 
   elements:
   
@@ -29,30 +51,49 @@
     show_single_value_title: true
     single_value_title: '# Campaigns'
     show_comparison: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: Lead_Count
     type: single_value
-    explore: campaign_summary
+    explore: camp_hdr
     measures: [campaign_summary.Total_Leads]
     sorts: [camp_hdr.Leads desc, campaign_summary.Total_Leads desc]
     limit: 500
     show_single_value_title: true
     single_value_title: '# Leads'
     show_comparison: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
+    
     
   - name: Opportunity_Count
     type: single_value
-    explore: campaign_summary
+    explore: camp_hdr
     measures: [campaign_summary.opportunities_count]
     sorts: [campaign_summary.opportunities_count desc]
     limit: 500
     show_single_value_title: true
     single_value_title: '# Opportunties'
     show_comparison: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: Opportunity_Revenue
     type: single_value
-    explore: opty_hdr1
+    explore: camp_hdr
     measures: [opty_hdr1.revenue__]
     sorts: [opty_hdr1.revenue__ desc]
     limit: 500
@@ -60,20 +101,32 @@
     single_value_title: Opportunity Revenue
     value_format: ''
     show_comparison: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: Booked_revenue
     type: single_value
-    explore: campaign_summary
+    explore: camp_hdr
     measures: [campaign_summary.booked_revenue]
     sorts: [campaign_summary.booked_revenue desc]
     limit: 500
     show_single_value_title: true
     single_value_title: Booked Revenue
     show_comparison: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
 
   - name: Opportunity_Revenue_
     type: looker_geo_choropleth
-    explore: opty_hdr1
+    explore: camp_hdr
     dimensions: [opty_hdr1.state]
     measures: [opty_hdr1.Opportunity_Revenue]
     sorts: [opty_hdr1.amount desc, opty_hdr1.state]
@@ -86,10 +139,16 @@
       text: '(Marketing Generated)'
       state:  collapsed
       display: above 
-
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
+    
   - name: Booked_Revenue_
     type: looker_geo_choropleth
-    explore: opty_hdr1
+    explore: camp_hdr
     dimensions: [opty_hdr1.State_]
     measures: [opty_hdr1.Booked_Revenue]
     sorts: [opty_hdr1.revenue desc, opty_hdr1.State_]
@@ -101,6 +160,12 @@
       text: '(Marketing Generated)'
       state:  collapsed
       display: above 
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: Campaign_Performance
     type: looker_bar
@@ -129,6 +194,12 @@
     x_axis_scale: ordinal
     y_axis_scale_mode: linear
     show_null_labels: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: ROI_By_Campaign_Type
     type: looker_line
@@ -164,6 +235,12 @@
     point_style: circle_outline
     interpolation: monotone
     discontinuous_nulls: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: Sourced_And_Assisted_Revenue
     type: looker_bar
@@ -195,7 +272,13 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: '#808080'
-  
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
+    
   - name: Top_5_Campaigns_By_Booked_Revenue
     type: looker_bar
     explore: camp_hdr
@@ -222,6 +305,12 @@
     x_axis_scale: ordinal
     y_axis_scale_mode: linear
     show_null_labels: false 
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: By_Campaign_Type
     type: looker_pie
@@ -233,7 +322,13 @@
     value_labels: legend
     inner_radius: 20
     show_view_names: false
-
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
+    
   - name: By_Segment  
     type: looker_pie
     explore: camp_hdr
@@ -247,6 +342,12 @@
     colors: ['#4B9BC4', '#F5AE00', '#B33936']
     inner_radius: 20
     show_view_names: false
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
     
   - name: By_Objective
     type: looker_pie
@@ -259,7 +360,12 @@
     colors: ['#CCCC00', '#9B3366', '#9B98FF', '#00AF52']
     inner_radius: 20
     show_view_names: false
-
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+    font_size: medium
 
 
   
