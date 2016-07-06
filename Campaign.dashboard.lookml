@@ -57,7 +57,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    font_size: medium
+    
     
     
   - name: Cost_Per_Lead
@@ -74,7 +74,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    font_size: medium
+    
     
   - name: Customer_Acquisition_Cost
     type: single_value
@@ -90,7 +90,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    font_size: medium
+    
     
   - name: ROI
     type: single_value
@@ -106,7 +106,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    font_size: medium
+    
     
   - name: Top_5_states_By_Opportunity_Revenue
     type: looker_bar
@@ -140,7 +140,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    font_size: medium
+    
     
   - name: Top_5_states_By_Booked_Revenue
     type: looker_bar
@@ -174,7 +174,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    font_size: medium
+    
     
 
   - name: Campaign_Details
@@ -197,5 +197,5 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    font_size: medium
+    
 

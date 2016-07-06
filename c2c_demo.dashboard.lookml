@@ -1,6 +1,8 @@
 - dashboard: Executive Summary
   title: Executive Summary
   layout: grid
+  
+
   rows:
     - elements: [Campaign_Count, Lead_Count, Opportunity_Count, Opportunity_Revenue, Booked_revenue ]
       height: 110
@@ -10,7 +12,6 @@
       height: 330
     - elements: [Sourced_And_Assisted_Revenue,Top_5_Campaigns_By_Booked_Revenue]
       height: 330
- 
     - elements: [By_Campaign_Type,By_Segment,By_Objective]
       height: 250
 
@@ -41,6 +42,8 @@
 
   elements:
   
+  
+    
  
   - name: Campaign_Count
     type: single_value
@@ -56,7 +59,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: Lead_Count
     type: single_value
@@ -72,7 +75,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
     
   - name: Opportunity_Count
@@ -89,13 +92,13 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: Opportunity_Revenue
     type: single_value
     explore: camp_hdr
-    measures: [opty_hdr1.revenue__]
-    sorts: [opty_hdr1.revenue__ desc]
+    measures: [opty_hdr1.revenue_____]
+    sorts: [opty_hdr1.revenue_____ desc]
     limit: 500
     show_single_value_title: true
     single_value_title: Opportunity Revenue
@@ -106,13 +109,13 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: Booked_revenue
     type: single_value
     explore: camp_hdr
-    measures: [campaign_summary.booked_revenue]
-    sorts: [campaign_summary.booked_revenue desc]
+    measures: [campaign_summary.booked__revenue]
+    sorts: [campaign_summary.booked__revenue desc]
     limit: 500
     show_single_value_title: true
     single_value_title: Booked Revenue
@@ -122,7 +125,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
 
   - name: Opportunity_Revenue_
     type: looker_geo_choropleth
@@ -144,7 +147,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: Booked_Revenue_
     type: looker_geo_choropleth
@@ -165,7 +168,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: Campaign_Performance
     type: looker_bar
@@ -199,7 +202,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: ROI_By_Campaign_Type
     type: looker_line
@@ -240,7 +243,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: Sourced_And_Assisted_Revenue
     type: looker_bar
@@ -277,7 +280,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: Top_5_Campaigns_By_Booked_Revenue
     type: looker_bar
@@ -310,7 +313,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: By_Campaign_Type
     type: looker_pie
@@ -327,7 +330,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: By_Segment  
     type: looker_pie
@@ -347,7 +350,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
     
   - name: By_Objective
     type: looker_pie
@@ -365,7 +368,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    font_size: medium
+    
 
 
   

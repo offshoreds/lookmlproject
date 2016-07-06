@@ -9,7 +9,7 @@
   - measure: booked_revenue
     type: sum
     sql: ${TABLE}.BOOKED_REVENUE
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
 
   - dimension: campaign_flg
     type: string
@@ -21,19 +21,19 @@
     
   - measure: Marketing_Opportunity_Revenue
     type : sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: |
        case when ${TABLE}.CAMPAIGN_FLG='Y' then ${TABLE}.opty_revenue else 0 end
   
   - measure: Other_Oportunity_Revenue
     type : sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: |
        case when ${TABLE}.CAMPAIGN_FLG='N' then ${TABLE}.opty_revenue else 0 end
   
   - measure: Marketing_booked_Revenue
     type : sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: |
        case when ${TABLE}.CAMPAIGN_FLG='Y' then ${TABLE}.BOOKED_REVENUE else 0 end
     
@@ -43,7 +43,7 @@
     type : sum
     sql: |
        case when ${TABLE}.CAMPAIGN_FLG='N' then ${TABLE}.BOOKED_REVENUE else 0 end
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
 
   - dimension: Opportunity_count
     type: string
@@ -52,7 +52,7 @@
   - measure: Opportunity_revenue
     type: sum
     sql: ${TABLE}.OPTY_REVENUE
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
 
   - dimension: quarter
     type: string

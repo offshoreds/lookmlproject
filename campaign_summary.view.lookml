@@ -18,7 +18,7 @@
     
   - measure: assisted_revenue
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: ${TABLE}.ASSISTED_REVENUE
 
   - measure: assisted_win
@@ -142,7 +142,7 @@
 
   - measure: opportunity_revenue
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: ${TABLE}.REVENUE
     
    
@@ -158,18 +158,28 @@
   
   - measure: campaign_cost
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: ${TABLE}.campaign_cost
     
     
   - measure: campaign_target
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: ${TABLE}.campaign_target
     
   - measure: booked_revenue
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
+    sql: ${TABLE}.booked_revenue
+    drill_fields: []
+    links:
+    - label: Order details
+      url: /dashboards/c2c_model::orders
+      icon_url: http://www-fr.nexonia.com/images/Icons/NexoniaPurchaseOrders10243x.png
+      
+  - measure: booked__revenue
+    type: sum
+    value_format: '$#,###,, " M"'
     sql: ${TABLE}.booked_revenue
     drill_fields: []
     links:
@@ -179,7 +189,7 @@
       
   - measure: booked___revenue
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: ${TABLE}.booked_revenue
     
     
@@ -207,7 +217,7 @@
 
   - measure: sourced_revenue
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: ${TABLE}.SOURCED_REVENUE
 
   - measure: sourced_win
@@ -224,7 +234,7 @@
   
   - measure: in_progress
     type: sum
-    value_format: '$#,###'
+    value_format: '$0.##,, " M"'
     sql: ${TABLE}.SOURCED_REVENUE+${TABLE}.ASSISTED_REVENUE
 
 

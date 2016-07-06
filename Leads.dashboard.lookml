@@ -53,7 +53,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
   
   - name: Pending_Leads
     type: single_value
@@ -69,7 +69,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
 
   - name: Total_Qualified_Leads
     type: single_value
@@ -85,7 +85,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
     
   - name: Rejected_leads
     type: single_value
@@ -101,7 +101,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
     
   - name: Top_5_Leads_By_campaign
     type: looker_bar
@@ -135,7 +135,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
     
   - name: Top_5_Leads_By_Objective
     type: looker_bar
@@ -170,7 +170,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
     
   
   - name: Top_5_Leads_By_Program
@@ -206,7 +206,7 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
     
   
   - name: Lead_Details
@@ -230,4 +230,4 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       
-    font_size: medium
+    
