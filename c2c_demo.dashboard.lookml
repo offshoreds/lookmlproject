@@ -6,15 +6,21 @@
   rows:
     - elements: [Campaign_Count, Lead_Count, Opportunity_Count, Opportunity_Revenue, Booked_revenue ]
       height: 110
+    - elements: [Total Pipeline  ,Total Booked Revenue]
+      height: 140
     - elements: [Opportunity_Revenue_,Booked_Revenue_]
       height: 330
+    
     - elements: [Campaign_Performance, ROI_By_Campaign_Type]
       height: 330
     - elements: [Sourced_And_Assisted_Revenue,Top_5_Campaigns_By_Booked_Revenue]
       height: 330
+   
+    - elements: [MarketingGeneratedCaption]
+      height: 110
     - elements: [By_Campaign_Type,By_Segment,By_Objective]
-      height: 250
-
+      height: 300
+  
   filters:
   - name: year
     title: 'Year'
@@ -42,9 +48,35 @@
 
   elements:
   
-  
+  - name: MarketingGeneratedCaption 
+    type: single_value
+    model: c2c_model
+    explore: camp_hdr
+    embed_style:
+      background_color: "#7F889B"
+    dynamic_fields:
+    - table_calculation: calculation_1
+      label: Calculation 1
+      expression: 'concat("Opportunity Revenue: ",round(${opty_hdr1.Opportunity__revenue}/1000000,0),"M")'
+    hidden_fields: [opty_hdr1.Opportunity__revenue]
+    measures: [opty_hdr1.Opportunity__revenue]
+    sorts: [opty_hdr1.Opportunity__revenue]
+    limit: 500
+    font_size: '6'
+    show_single_value_title: true
+    show_comparison: false
+    single_value_title: (Marketing Generated)
+    note:
+      text: 'Opportunity Revenue'
+      state:  collapsed
+      display: Above
+    listen:
+      year: camp_hdr.year
+      quarter:  campaign_summary.quarter
+      parent campaign: camp_hdr.parent_campaign
+      campaign: camp_hdr.campaign
+
     
- 
   - name: Campaign_Count
     type: single_value
     explore: camp_hdr
@@ -102,7 +134,7 @@
     limit: 500
     show_single_value_title: true
     single_value_title: Opportunity Revenue
-    value_format: ''
+    value_format: $#,###,, " M"
     show_comparison: false
     listen:
       year: camp_hdr.year
@@ -125,7 +157,8 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
+      
+  
 
   - name: Opportunity_Revenue_
     type: looker_geo_choropleth
@@ -168,6 +201,77 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
+      
+  - name: Total Pipeline  
+    title: Total Pipeline
+    type: looker_bar
+    explore: pipeline
+    measures: [pipeline.Marketing_Opportunity_Revenue, pipeline.Other_Oportunity_Revenue]
+    sorts: [pipeline.Marketing_opty_Revenue desc, pipeline.Marketing_Opportunity_Revenue desc]
+    limit: 500
+    stacking: normal
+    colors: ['#7A8A5E', '#dedcdc', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
+      '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
+    show_value_labels: false
+    label_density: 25
+    font_size: '9'
+    hide_legend: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: false
+    show_y_axis_ticks: false
+    y_axis_tick_density: default
+    show_x_axis_label: false
+    show_x_axis_ticks: false
+    x_axis_scale: ordinal
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: '#808080'
+    x_padding_left: 112
+    x_padding_right: 77
+    note:
+      text: 'Marketing Generated: 77%'
+      state:  collapsed
+      display: below 
+  - name: Total Booked Revenue
+    title: Total Booked Revenue
+    type: looker_bar
+    model: demo
+    explore: pipeline
+    measures: [pipeline.Marketing_booked_Revenue, pipeline.other_booked_Revenue]
+    sorts: [pipeline.Marketing_booked_Revenue desc]
+    limit: 500
+    stacking: normal
+    colors: ['#50677C', '#dedcdc', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
+      '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
+    show_value_labels: false
+    label_density: 25
+    font_size: '9'
+    hide_legend: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: false
+    show_y_axis_ticks: false
+    y_axis_tick_density: default
+    show_x_axis_label: false
+    show_x_axis_ticks: false
+    x_axis_scale: ordinal
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: '#808080'
+    x_padding_left: 112
+    x_padding_right: 77
+    note:
+      text: 'Marketing Generated: 81%'
+      state:  collapsed
+      display: below
+
     
     
   - name: Campaign_Performance
@@ -313,6 +417,9 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
+      
+      
+  
     
     
   - name: By_Campaign_Type
@@ -338,11 +445,11 @@
     dimensions: [campaign_summary.segment]
     measures: [campaign_summary.opportunity_revenue]
     filters:
-    campaign_summary.segment: -NULL
+      campaign_summary.segment: -NULL
     sorts: [campaign_summary.revenue, campaign_summary.segment]
     limit: 500
     value_labels: legend
-    colors: ['#4B9BC4', '#F5AE00', '#B33936']
+    colors: ['#307D7E','#CCCD7F', '#8BDBA1']
     inner_radius: 20
     show_view_names: false
     listen:
@@ -350,6 +457,9 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
+      
+ 
+
     
     
   - name: By_Objective
@@ -360,7 +470,7 @@
     sorts: [campaign_summary.revenue, camp_hdr.objective]
     limit: 500
     value_labels: legend
-    colors: ['#CCCC00', '#9B3366', '#9B98FF', '#00AF52']
+    colors: ['#2f8eaa','#8BDBA1', '#307D7E', '#CCCD7F']
     inner_radius: 20
     show_view_names: false
     listen:

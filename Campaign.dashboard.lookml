@@ -50,6 +50,7 @@
     sorts: [campaign_summary.campaign_cost desc]
     limit: 500
     show_single_value_title: true
+    value_format: $###,, "M"
     show_comparison: false
     listen:
       Year: camp_hdr.year

@@ -6,6 +6,8 @@
     type: string
     sql: ${TABLE}.CAMPAIGN
     
+ 
+    
     
     
   - dimension: Campaign_Name
@@ -32,11 +34,23 @@
   - dimension: program_name
     type: string
     sql: ${TABLE}.PROGRAM_NAME
+    
+  - dimension: program
+    type: string
+    sql:  |
+         case when 1=0 then '2016'  else 'Opportunity Revenue' END
+    
 
   - measure: Spend
     type: sum
     value_format: '$#,###'
     sql: ${TABLE}.SPEND
+    
+  
+  - measure: Spend_test
+    type: sum
+    value_format: '$#,###'
+    sql: select 'abc' ${TABLE}.SPEND  from dual
     
   
 
