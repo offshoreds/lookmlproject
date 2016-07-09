@@ -57,7 +57,7 @@
     dynamic_fields:
     - table_calculation: calculation_1
       label: Calculation 1
-      expression: 'concat("Opportunity Revenue: ",round(${opty_hdr1.Opportunity__revenue}/1000000,0),"M")'
+      expression: 'concat("Opportunity Revenue: $",round(${opty_hdr1.Opportunity__revenue}/1000000,0),"M")'
     hidden_fields: [opty_hdr1.Opportunity__revenue]
     measures: [opty_hdr1.Opportunity__revenue]
     sorts: [opty_hdr1.Opportunity__revenue]
