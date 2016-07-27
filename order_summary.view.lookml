@@ -7,12 +7,12 @@
   - measure: Booked_Revenue
     type: sum
     sql: ${TABLE}.revenue
-    value_format: '$0.###,, " M"'
+    value_format: '$#,###'
     
   - measure: Amount
     type: sum
     sql: ${TABLE}.revenue
-    value_format: '$0.##,, " M"'
+    value_format: '$#,###'
 
 
   - dimension: camp_id

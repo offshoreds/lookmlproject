@@ -6,6 +6,7 @@
   - measure: Total_Leads
     type: sum
     sql: ${TABLE}.Total_Leads
+    
     drill_fields: []
     links: 
     - label: Lead Details
@@ -155,6 +156,25 @@
     type: sum
     sql: ${TABLE}.booked_order  
     
+    
+  - measure: orger
+    type: sum
+    sql: ${TABLE}.booked_order  
+    html: |
+      {% if value == '31' %}
+         
+        <p style="color: black; background-color: blue; font-size:100%; text-align:center">{{ rendered_value }}</p>
+      {% elsif value == '20' %}
+        <p style="color: black; background-color: lightgreen; font-size:100%; text-align:center">{{ rendered_value }}</p>
+      {% elsif value == '17' %}
+        <p style="color: black; background-color: orange; font-size:100%; text-align:center">{{ rendered_value }}</p>
+      {% else %}
+        <p style="color: black; background-color: green; font-size:100%; text-align:center">{{ rendered_value }}</p>
+      {% endif %}
+      
+
+  
+  
   
   - measure: campaign_cost
     type: sum
@@ -240,6 +260,7 @@
 
   - measure: total_inquiries
     type: sum
+    value_format: '#,###'
     sql: ${TABLE}.TOTAL_INQUIRIES/500
 
   - measure: total_qualified_leads

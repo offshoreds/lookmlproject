@@ -52,6 +52,7 @@
     type: single_value
     model: c2c_model
     explore: camp_hdr
+    font_size: 500%
     embed_style:
       background_color: "#7F889B"
     dynamic_fields:
@@ -62,7 +63,7 @@
     measures: [opty_hdr1.Opportunity__revenue]
     sorts: [opty_hdr1.Opportunity__revenue]
     limit: 500
-    font_size: '6'
+    
     show_single_value_title: true
     show_comparison: false
     single_value_title: (Marketing Generated)
@@ -86,6 +87,7 @@
     show_single_value_title: true
     single_value_title: '# Campaigns'
     show_comparison: false
+    
     listen:
       year: camp_hdr.year
       quarter:  campaign_summary.quarter

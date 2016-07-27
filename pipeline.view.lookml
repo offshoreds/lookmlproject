@@ -2,8 +2,8 @@
   sql_table_name: C2CDB.PIPELINE
   fields:
 
-  - dimension: booked_order
-    type: string
+  - measure: booked_order
+    type: sum
     sql: ${TABLE}.BOOKED_ORDER
 
   - measure: booked_revenue

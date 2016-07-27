@@ -12,7 +12,7 @@
   - measure: Opportunity_Revenue
     type: sum
     value_format: '$0.##,, " M"'
-   
+    
     sql: ${TABLE}.AMOUNT
     drill_fields: []
    
@@ -45,9 +45,12 @@
     
   - measure: Opportunity__revenue
     type: sum
+     
     value_format: '$0.##,, " M"'
     sql: ${TABLE}.REVENUE
     
+      
+      
   - measure: revenue__
     type: sum
     value_format: '$0.##,, " M"'
@@ -63,6 +66,7 @@
     type: sum
     value_format:  '$#,###,,"M"'
     sql: ${TABLE}.REVENUE
+    
     drill_fields: []
    
     links: 

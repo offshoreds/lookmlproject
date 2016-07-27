@@ -9,7 +9,6 @@
  
     
     
-    
   - dimension: Campaign_Name
     type: string
     sql: ${TABLE}.CAMPAIGN
@@ -18,6 +17,7 @@
     type: string
     sql: ${TABLE}.CAMPAIGN_ID
     
+
 
   - dimension: objective
     type: string
@@ -45,6 +45,17 @@
     type: sum
     value_format: '$#,###'
     sql: ${TABLE}.SPEND
+    
+ 
+    
+  
+  - measure: Spend_2015
+    type: sum
+    value_format: '$#,###'
+    sql: ${TABLE}.SPEND
+    filters:
+     year: 2015
+    
     
   
   - measure: Spend_test
@@ -94,9 +105,11 @@
   - dimension: year
     type: string
     sql: ${TABLE}.YEAR
+    
 
   - measure: Campaign_Count
     type: count
+    
     drill_fields: []
     
     links: 
