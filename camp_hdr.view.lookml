@@ -3,113 +3,81 @@
   fields:
 
   - dimension: campaign
+    label: 'Campaign'
     type: string
     sql: ${TABLE}.CAMPAIGN
     
- 
-    
-    
-  - dimension: Campaign_Name
-    type: string
-    sql: ${TABLE}.CAMPAIGN
 
   - dimension: campaign_id
+    label: 'Campaign Id'
     type: string
     sql: ${TABLE}.CAMPAIGN_ID
-    
-
-
+  
   - dimension: objective
+    label: 'Campaign Objective'
     type: string
     sql: ${TABLE}.OBJECTIVE
  
   - dimension: parent_campaign
-    type: string
-    sql: ${TABLE}.PARENT_CAMPAIGN
-
-  - dimension: parent__campaign
+    label: 'Parent Campaign'
     type: string
     sql: ${TABLE}.PARENT_CAMPAIGN
 
   - dimension: program_name
+    label: 'Campaign Program'
     type: string
     sql: ${TABLE}.PROGRAM_NAME
     
-  - dimension: program
-    type: string
-    sql:  |
-         case when 1=0 then '2016'  else 'Opportunity Revenue' END
-    
-
   - measure: Spend
+    label: 'Amount Spend'
     type: sum
     value_format: '$#,###'
     sql: ${TABLE}.SPEND
     
- 
-    
-  
-  - measure: Spend_2015
-    type: sum
-    value_format: '$#,###'
-    sql: ${TABLE}.SPEND
-    filters:
-     year: 2015
-    
-    
-  
-  - measure: Spend_test
-    type: sum
-    value_format: '$#,###'
-    sql: select 'abc' ${TABLE}.SPEND  from dual
-    
-  
-
   - dimension: Campaign_Type
-    type: string
-    sql: ${TABLE}.TYPE
-    
-  
-  - dimension: Campaign__type
+    label: 'Campaign Type'
     type: string
     sql: ${TABLE}.TYPE
     
     
-  - measure : Event
+  - measure: Event
+    label: 'Roi By Event'
     type : avg
     value_format: '0.##'
-    sql: |
-        case when  ${TABLE}.TYPE ='Event' then  campaign_summary.roi  END
+    sql: ${campaign_summary.roi}
+    filters:
+     Campaign_Type: 'Event'
   
 
   
   - measure : Email_Blast
+    label: 'Roi By Email blast'
     type : avg
     value_format: '0.##'
-    sql: |
-        case when  ${TABLE}.TYPE ='Email Blast' then  campaign_summary.roi  END
-        
+    sql: ${campaign_summary.roi}
+    filters:
+     Campaign_Type: 'Email Blast'
+    
 
   - measure : Promotion
+    label: 'Roi By Promotion'
     type : avg
     value_format: '0.##'
-    sql: |
-        case when  ${TABLE}.TYPE ='Promotion' then  campaign_summary.roi  END
-        
-   
+    sql: ${campaign_summary.roi}
+    filters:
+     Campaign_Type: 'Promotion'
     
-  
-  
- 
+        
 
   - dimension: year
+    label: 'Campaign Year'
     type: string
     sql: ${TABLE}.YEAR
     
 
   - measure: Campaign_Count
+    label: 'Campaign Count'
     type: count
-    
     drill_fields: []
     
     links: 

@@ -5,67 +5,42 @@
 
 
 - explore: camp_hdr
+  label: 'Campaigns'
+  view_label: 'Campaigns'
   joins: 
     - join: campaign_summary
+      view_label: 'Campaigns'
       type: inner
       relationship: one_to_one
-      sql_on: campaign_summary.campaign_id=camp_hdr.campaign_id
+      sql_on: ${campaign_summary.campaign_id} =${camp_hdr.campaign_id}
     
     - join: lead_hdr
+      view_label: 'Leads'
       type: inner
       relationship: one_to_one
-      sql_on: camp_hdr.campaign_id=lead_hdr.campaignid
+      sql_on: ${camp_hdr.campaign_id} =${lead_hdr.campaignid}
       
     - join: opty_hdr1
+      view_label: 'Opportunity'
       type: inner
       relationship: one_to_one
-      sql_on: camp_hdr.campaign_id=opty_hdr1.camp_id  
+      sql_on: ${camp_hdr.campaign_id}=${opty_hdr1.camp_id}
       
     - join: pipeline
+      view_label: 'Opportunity Pipeline'
       type: left_outer
       relationship: one_to_one
-      sql_on: camp_hdr.campaign_id=pipeline.campid
+      sql_on: ${camp_hdr.campaign_id}=${pipeline.campid}
     
     - join: order_summary
+      view_label: 'Orders'
       type: inner
       relationship: one_to_one
-      sql_on: camp_hdr.campaign_id=order_summary.camp_id
-
-
-
-- explore: camp_hdr_bkp
-
-- explore: campaign_details
-
-- explore: campaign_details_bkp
-
-- explore: campaign_summary
-
-- explore: campaign_summary_bkp
-
-- explore: contact_details
-
-- explore: lead_details
-
-- explore: lead_details11
-
-- explore: lead_details_bkp
-
-- explore: lead_hdr
-
-- explore: opportunity_details
-
-- explore: opportunity_details123
-
-- explore: opty_hdr1
+      sql_on: ${camp_hdr.campaign_id}=${order_summary.camp_id}
 
 - explore: pipeline
+  label: 'Opportunity Pipeline'
+  view_label: 'Opportunity Pipeline'
 
-- explore: stage_name
 
-- explore: state_names
-
-- explore: tmp_lkp_bill_to1
-
-- explore: us_states
 

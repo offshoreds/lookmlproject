@@ -96,8 +96,8 @@
   - name: ROI
     type: single_value
     explore: camp_hdr
-    measures: [campaign_summary.ROI]
-    sorts: [campaign_summary.customer_acquisition_costs desc, campaign_summary.ROI desc]
+    measures: [campaign_summary.avg_roi]
+    sorts: [campaign_summary.customer_acquisition_costs desc, campaign_summary.avg_roi desc]
     limit: 500
     show_single_value_title: true
     show_comparison: false
@@ -181,7 +181,7 @@
   - name: Campaign_Details
     type: table
     explore: camp_hdr
-    dimensions: [camp_hdr.Campaign__type, camp_hdr.parent__campaign, camp_hdr.Campaign_Name]
+    dimensions: [camp_hdr.Campaign_Type, camp_hdr.parent_campaign, camp_hdr.campaign]
     measures: [campaign_summary.campaign_cost, campaign_summary.campaign_target, campaign_summary.Total__Leads,
       campaign_summary.Opportunities, campaign_summary.Booked_Orders, campaign_summary.opportunity_revenue,
      campaign_summary.booked___revenue]

@@ -106,14 +106,14 @@
   - name: Top_5_Leads_By_campaign
     type: looker_bar
     explore: camp_hdr
-    dimensions: [camp_hdr.Campaign_Name]
+    dimensions: [camp_hdr.campaign]
     measures: [campaign_summary.Total_Leads]
     sorts: [campaign_summary.Total_Leads desc]
     limit: 5
     stacking: ''
     colors: ['#90c8ae', '#99ca3d', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
       '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     hide_legend: true
     x_axis_gridlines: false
@@ -148,7 +148,7 @@
     stacking: ''
     colors: ['#80b1d3', '#ffed6f', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69',
       '#fccde5', '#d9d9d9', '#bc80bd', '#ccebc5', '#a3a3ff']
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
@@ -184,7 +184,7 @@
     stacking: ''
     colors: ['#bebada', '#ffed6f', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69',
       '#fccde5', '#d9d9d9', '#bc80bd', '#ccebc5', '#a3a3ff']
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false

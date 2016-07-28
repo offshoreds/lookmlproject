@@ -24,7 +24,7 @@
     stacking: ''
     colors: ['#62bad4', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
       '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
@@ -39,6 +39,7 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    label_value_format: $0.##,, " M"
     show_null_labels: false
     
   - name: Opportunity_revenue
@@ -67,6 +68,7 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    label_value_format: $0.##,, " M"
     show_null_labels: false
     
   - name: Opportunity_Details
