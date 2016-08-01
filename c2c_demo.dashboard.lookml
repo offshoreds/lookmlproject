@@ -315,7 +315,7 @@
     explore: camp_hdr
     dimensions: [camp_hdr.year, campaign_summary.quarter]
     measures: [camp_hdr.Email_Blast, camp_hdr.Event, camp_hdr.Promotion]
-    sorts: [camp_hdr.year desc, campaign_summary.quarter desc]
+    sorts: [camp_hdr.year , campaign_summary.quarter ]
     limit: 500
     column_limit: 50
     stacking: ''
