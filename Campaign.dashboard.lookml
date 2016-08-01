@@ -4,7 +4,7 @@
   rows:
     - elements: [Campaign_Cost,Cost_Per_Lead,Customer_Acquisition_Cost,ROI ]
       height: 110
-    - elements:  [Campaign_Effectiveness_By_year]
+    - elements:  [Campaign_Effectiveness]
       height: 330
     - elements: [Top_5_states_By_Opportunity_Revenue,Top_5_states_By_Booked_Revenue ]
       height: 330
@@ -103,6 +103,7 @@
     limit: 500
     show_single_value_title: true
     show_comparison: false
+    single_value_title: 'ROI'
     listen:
       Year: camp_hdr.year
       Quarter:  campaign_summary.quarter
@@ -202,7 +203,7 @@
       Campaign Type: camp_hdr.Campaign_Type
       
       
-  - name: Campaign_Effectiveness_By_year
+  - name: Campaign_Effectiveness
     type: looker_column
     explore: camp_hdr
     dimensions: [camp_hdr.year, campaign_summary.quarter]
