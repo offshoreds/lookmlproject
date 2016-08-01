@@ -4,6 +4,8 @@
   rows:
     - elements: [Campaign_Cost,Cost_Per_Lead,Customer_Acquisition_Cost,ROI ]
       height: 110
+    - elements:  [Campaign_Effectiveness_By_year]
+      height: 330
     - elements: [Top_5_states_By_Opportunity_Revenue,Top_5_states_By_Booked_Revenue ]
       height: 330
     - elements: [Campaign_Details ]
@@ -198,5 +200,52 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
+      
+      
+  - name: Campaign_Effectiveness_By_year
+    type: looker_column
+    explore: camp_hdr
+    dimensions: [camp_hdr.year, campaign_summary.quarter]
+    measures: [campaign_summary.total_inquiries, campaign_summary.Total__Leads, campaign_summary.opportunities_count,
+      campaign_summary.Booked_Orders]
+    dynamic_fields:
+    - table_calculation: response_rate
+      label: Response Rate
+      expression: ${campaign_summary.Total__Leads}/${campaign_summary.total_inquiries}*100
+      value_format: 0.##\%
+    - table_calculation: lead_to_opty_conversion
+      label: Lead to Opty Conversion
+      expression: ${campaign_summary.opportunities_count}/${campaign_summary.Total__Leads}*100
+      value_format: 0.##\%
+    - table_calculation: leads_to_orders_conversion
+      label: Leads to Orders Conversion
+      expression: ${campaign_summary.Booked_Orders}/${campaign_summary.Total__Leads}*100
+      value_format: 0.##\%
+    hidden_fields: [campaign_summary.total_inquiries, campaign_summary.Total__Leads,
+      campaign_summary.opportunities_count, campaign_summary.Booked_Orders]
+    sorts: [camp_hdr.year , campaign_summary.quarter ]
+    limit: 500
+    stacking: ''
+    colors: ['#62bad4', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
+      '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
+    show_value_labels: true
+    label_density: 25
+    font_size: '12'
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    label_rotation: 300
+    show_null_labels: false
+ 
     
 
