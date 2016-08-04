@@ -94,6 +94,7 @@
     
     
   - name: ROI
+    title: 'RoI'
     type: single_value
     explore: camp_hdr
     measures: [campaign_summary.avg_roi]

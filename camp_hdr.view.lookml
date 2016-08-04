@@ -60,7 +60,7 @@
     
     
   - measure: Event
-    label: 'Roi By Event'
+    label: 'RoI By Event'
     type : avg
     value_format: '0.##'
     sql: ${campaign_summary.roi}
@@ -73,7 +73,7 @@
 
   
   - measure : Email_Blast
-    label: 'Roi By Email blast'
+    label: 'RoI By Email blast'
     type : avg
     value_format: '0.##'
     sql: ${campaign_summary.roi}
@@ -85,7 +85,7 @@
       
 
   - measure : Promotion
-    label: 'Roi By Promotion'
+    label: 'RoI By Promotion'
     type : avg
     value_format: '0.##'
     sql: ${campaign_summary.roi}
