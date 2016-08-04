@@ -313,6 +313,7 @@
     
     
   - name: ROI_By_Campaign_Type
+    title: 'RoI By Campaign Type'
     type: looker_line
     explore: camp_hdr
     dimensions: [camp_hdr.year, campaign_summary.quarter]
