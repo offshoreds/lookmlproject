@@ -28,6 +28,9 @@
     type : sum
     value_format: '$0.##,, " M"'
     sql: OPTY_REVENUE
+    links: 
+    - label: Opportunity Details
+      url: /dashboards/c2c_model::opportunity
     filters:
       campaign_flg: 'Y'
     
@@ -36,6 +39,9 @@
     type : sum
     value_format: '$0.##,, " M"'
     sql: OPTY_REVENUE
+    links: 
+    - label: Opportunity Details
+      url: /dashboards/c2c_model::opportunity
     filters:
       campaign_flg: 'N'
   
@@ -43,7 +49,10 @@
     label: 'Marketing Booked Revenue'
     type : sum
     value_format: '$0.##,, " M"'
-    sql: ${booked_revenue}
+    sql: booked_revenue
+    links:
+    - label: Order details
+      url: /dashboards/c2c_model::orders
     filters:
       campaign_flg: 'Y'
     
@@ -51,7 +60,10 @@
   - measure: other_booked_Revenue
     label: 'Other Booked Revenue'
     type : sum
-    sql: ${booked_revenue}
+    sql: booked_revenue
+    links:
+    - label: Order details
+      url: /dashboards/c2c_model::orders
     filters:
       campaign_flg: 'N'
     value_format: '$0.##,, " M"'

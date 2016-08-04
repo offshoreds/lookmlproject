@@ -30,6 +30,14 @@
     type: date
     sql: ${TABLE}.order_date
     
+    
+  - dimension: order_month
+    label: 'Order month'
+    type: date_month
+    sql: ${TABLE}.order_date
+    
+    
+    
   - dimension: shipped_date
     label: 'Shipped Date'
     type: date
@@ -99,5 +107,6 @@
 
   - measure: Booked_Orders
     type: count
+    drill_fields: [order_summary.opportunity_name,order_summary.order_date,order_summary.order_status]
     
   

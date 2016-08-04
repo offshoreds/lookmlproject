@@ -45,12 +45,13 @@
     type: field_filter
     explore: camp_hdr 
     field: camp_hdr.campaign
+    
+
 
   elements:
   
   - name: MarketingGeneratedCaption 
     type: single_value
-    model: c2c_model
     explore: camp_hdr
     font_size: 500%
     embed_style:
@@ -58,7 +59,7 @@
     dynamic_fields:
     - table_calculation: calculation_1
       label: Calculation 1
-      expression: 'concat("Opportunity Revenue: $",round(${opty_hdr1.Opportunity__revenue}/1000000,0),"M")'
+      expression: 'concat("Opportunity Revenue: $",round(${opty_hdr1.Opportunity__revenue}/1000000,2),"M")'
     hidden_fields: [opty_hdr1.Opportunity__revenue]
     measures: [opty_hdr1.Opportunity__revenue]
     sorts: [opty_hdr1.Opportunity__revenue]
@@ -76,7 +77,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-
+      
     
   - name: Campaign_Count
     type: single_value
@@ -136,7 +137,7 @@
     limit: 500
     show_single_value_title: true
     single_value_title: Opportunity Revenue
-    value_format: $#,###,, " M"
+   
     show_comparison: false
     listen:
       year: camp_hdr.year
@@ -238,10 +239,11 @@
       text: 'Marketing Generated: 77%'
       state:  collapsed
       display: below 
+      
+
   - name: Total Booked Revenue
     title: Total Booked Revenue
     type: looker_bar
-    model: demo
     explore: pipeline
     measures: [pipeline.Marketing_booked_Revenue, pipeline.other_booked_Revenue]
     sorts: [pipeline.Marketing_booked_Revenue desc]
@@ -280,7 +282,7 @@
     type: looker_bar
     explore: camp_hdr
     dimensions: [camp_hdr.Campaign_Type]
-    measures: [campaign_summary.campaign_cost, campaign_summary.campaign_target, campaign_summary.opportunity_revenue,campaign_summary.booked_revenue]
+    measures: [campaign_summary.campaign_cost, campaign_summary.campaign_target, campaign_summary.opty__revenue,campaign_summary.booked___revenue]
     sorts: [camp_hdr.Campaign_Type]
     limit: 500
     column_limit: 50
@@ -392,8 +394,8 @@
     type: looker_bar
     explore: camp_hdr
     dimensions: [camp_hdr.campaign]
-    measures: [campaign_summary.booked_revenue]
-    sorts: [campaign_summary.booked_revenue desc]
+    measures: [campaign_summary.booked___revenue]
+    sorts: [campaign_summary.booked___revenue desc]
     limit: 5
     stacking: ''
     colors: ['#86b867', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
@@ -439,7 +441,7 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
+      
     
   - name: By_Segment  
     type: looker_pie

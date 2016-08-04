@@ -13,7 +13,9 @@
     type: sum
     label: 'Total Leads'
     sql: ${Leads_count}
-    drill_fields: []
+    drill_fields: [lead_hdr.lead_NAME, lead_hdr.status, lead_hdr.aging, lead_hdr.statename,
+                   lead_hdr.marketing_status, lead_hdr.date_created]
+    
     links: 
     - label: Lead Details
       url: /dashboards/c2c_model::leads?Year=&Quarter=&Parent Campaign=&Campaign=&filter_config={"Year":[{"type":"%3D","values":[{"constant":""},{}],"id":0}],"Quarter":[{"type":"%3D","values":[{"constant":""},{}],"id":1}],"Parent Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":2}],"Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":3}]}
@@ -29,7 +31,11 @@
     label: 'Assisted Revenue'
     value_format: '$0.##,, " M"'
     sql: ${TABLE}.ASSISTED_REVENUE
-
+    links: 
+    - label: Campaign Details
+      url: /dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={"Year":[{"type":"%3D","values":[{"constant":""},{}],"id":0}],"Quarter":[{"type":"%3D","values":[{"constant":""},{}],"id":1}],"Parent Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":2}],"Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":3}],"Campaign Type":[{"type":"%3D","values":[{"constant":""},{}],"id":4}]}
+      
+        
   - measure: assisted_win
     type: sum
     hidden: true
@@ -64,18 +70,32 @@
     type: number
     hidden: true
     sql: ${TABLE}.CLOSED_WON_OPTYS
+    
+  - dimension: lead_cost
+    type: number
+    hidden: true
+    sql: ${TABLE}.COST_PER_LEAD
 
   - measure: cost_per_lead
     type: avg
+    drill_fields: [camp_hdr.Campaign_Type,camp_hdr.parent_campaign,
+                  camp_hdr.campaign,campaign_summary.cost_per_lead]
     label: 'Cost Per Lead'
-    value_format: '#,##0.00'
-    sql: ${TABLE}.COST_PER_LEAD
+    value_format: '$#,##0.00'
+    sql: ${lead_cost}
+    
+  - dimension: acquisition_cost
+    type: number
+    hidden: true
+    sql: ${TABLE}.CUSTOMER_ACQUISITION_COSTS
     
   - measure: customer_acquisition_cost
     type: avg
     label: 'Customer Acquisition Cost'
-    value_format: '#,##0.00'
-    sql: ${TABLE}.CUSTOMER_ACQUISITION_COSTS
+    drill_fields: [camp_hdr.Campaign_Type,camp_hdr.parent_campaign,
+                  camp_hdr.campaign,customer_acquisition_cost]
+    value_format: '$#,##0.00'
+    sql: ${acquisition_cost}
 
   - dimension: early_stage
     type: string
@@ -127,10 +147,12 @@
     sql: ${TABLE}.OPPORTUNITIES
   
   - measure: opportunities_count
-    type: sum
+    type: sum                                         # executive dashboard opty count
     label: 'Opportunities Count'
     sql: ${opportunities}
-    drill_fields: []
+    drill_fields: [opty_hdr1.year, opty_hdr1.quarter,camp_hdr.campaign, opty_hdr1.Opportunity_Name, opty_hdr1.state,
+                      opty_hdr1.pipeline_type, opty_hdr1.pipeline_stage,opty_hdr1.Opportunity__revenue]
+
     links: 
     - label: Opportunity Details
       url: /dashboards/c2c_model::opportunity
@@ -156,6 +178,7 @@
 
   - measure: pending_leads
     type: sum
+    drill_fields: [lead_hdr.lead_NAME,lead_hdr.date_created,lead_hdr.statename]
     label: 'Pending Leads'
     sql: ${TABLE}.PENDING_LEADS
 
@@ -172,13 +195,32 @@
   - measure: rejected_leads
     label: 'Rejected Leads'
     type: sum
+    drill_fields: [lead_hdr.lead_NAME,lead_hdr.date_created,lead_hdr.statename]
     sql: ${TABLE}.REJECTED_LEADS
+    
+  - dimension: opty_revenue
+    type: number
+    hidden: true
+    sql: ${TABLE}.REVENUE
+    
+  - measure: opty__revenue
+    type: sum
+    label: 'Opportunity Amount'
+    hidden: true
+    value_format: '$0.##,, " M"'  # for detail report in campin dashboard
+    sql: ${opty_revenue}
+    
 
   - measure: opportunity_revenue
     type: sum
     hidden: true
-    value_format: '$0.##,, " M"'
-    sql: ${TABLE}.REVENUE
+    value_format: '$0.##,, " M"'  # for executie dashboard by campaign type  report
+    sql: ${opty_revenue}
+    links: 
+    - label: Campaign Details
+      url: /dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={"Year":[{"type":"%3D","values":[{"constant":""},{}],"id":0}],"Quarter":[{"type":"%3D","values":[{"constant":""},{}],"id":1}],"Parent Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":2}],"Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":3}],"Campaign Type":[{"type":"%3D","values":[{"constant":""},{}],"id":4}]}
+      
+        
     
    
   - dimension: orders
@@ -200,6 +242,8 @@
   - measure: campaign_cost
     type: sum
     label: 'Campaign Cost'
+    drill_fields: [camp_hdr.Campaign_Type,camp_hdr.parent_campaign,
+                  camp_hdr.campaign,campaign_summary.campaign_cost]
     value_format: '$0.##,, " M"'
     sql: ${TABLE}.campaign_cost
     
@@ -219,7 +263,6 @@
     type: sum
     value_format: '$0.##,, " M"'
     sql: ${ordersbookedrevenue}
-    drill_fields: []
     links:
     - label: Order details
       url: /dashboards/c2c_model::orders
@@ -228,9 +271,11 @@
   - measure: booked__revenue
     type: sum
     hidden: true
-    value_format: '$#,###,, " M"'
+    value_format: '$#0.00,, " M"'
     sql: ${ordersbookedrevenue}
-    drill_fields: []
+    drill_fields: [order_summary.opportunity_name, order_summary.order_date, order_summary.order_status,
+                    order_summary.state, order_summary.neededby_DATE, order_summary.shipped_date,
+                     order_summary.DELIVERY_DATE, order_summary.INVOICE_DATE,order_summary.Booked_Revenue]
     links:
     - label: Order details
       url: /dashboards/c2c_model::orders
@@ -247,13 +292,17 @@
     hidden: true
     type: number
     sql: ${TABLE}.roi
-
+   
+        
   - measure: avg_roi
     label: 'ROI'
     type: avg
+    drill_fields: [camp_hdr.Campaign_Type,camp_hdr.parent_campaign,
+                  camp_hdr.campaign,campaign_summary.campaign_cost,avg_roi]
     value_format:  '#,##0.00'
     sql:  ${roi}
-
+   
+        
   - measure: sal_to_sql
     type: sum
     hidden: true
@@ -279,7 +328,11 @@
     hidden: true
     value_format: '$0.##,, " M"'
     sql: ${TABLE}.SOURCED_REVENUE
-
+    links: 
+    - label: Campaign Details
+      url: /dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={"Year":[{"type":"%3D","values":[{"constant":""},{}],"id":0}],"Quarter":[{"type":"%3D","values":[{"constant":""},{}],"id":1}],"Parent Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":2}],"Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":3}],"Campaign Type":[{"type":"%3D","values":[{"constant":""},{}],"id":4}]}
+      
+        
   - measure: sourced_win
     type: sum
     hidden: true
@@ -304,12 +357,14 @@
 
   - measure: total_inquiries
     type: sum
+    drill_fields: [lead_hdr.date_created,lead_hdr.statename]
     label: 'Total Inquiries'
     value_format: '#,###'
     sql: ${TABLE}.TOTAL_INQUIRIES/500
 
   - measure: total_qualified_leads
     type: sum
+    drill_fields: [lead_hdr.lead_NAME,lead_hdr.date_created,lead_hdr.statename]
     label: 'Total Qualified Leads'
     sql: ${TABLE}.TOTAL_QUALIFIED_LEADS
     

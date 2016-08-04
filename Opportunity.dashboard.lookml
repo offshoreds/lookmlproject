@@ -2,11 +2,15 @@
   title: Opportunity
   layout: grid
   rows:
-    - elements: [Total_Opportunities,Won_Opty,pipeline_opty,Closed_lost_opty]
+    - elements: [Total_Opportunities,pipeline_opty,Won_Opty,Closed_lost_opty]
       height: 110
       
-    - elements: [Pipeline_All_stages,Opportunity_revenue,opty_to_orders ]
+    - elements: [Pipeline_All_stages,Opportunity_revenue ]
       height: 330
+    
+    - elements: [opty_to_orders ]
+      height: 330
+      
     - elements: [Opportunity_Details]
       height: 380
 
@@ -81,7 +85,7 @@
   - name: Opportunity_Details
     type: table
     explore: camp_hdr
-    dimensions: [opty_hdr1.year, opty_hdr1.quarter, opty_hdr1.Opportunity_Name, opty_hdr1.state,
+    dimensions: [opty_hdr1.year, opty_hdr1.quarter,camp_hdr.campaign, opty_hdr1.Opportunity_Name, opty_hdr1.state,
       opty_hdr1.pipeline_type, opty_hdr1.pipeline_stage]
     measures: [opty_hdr1.Opportunity__revenue]
     sorts: [opty_hdr1.Opportunity_Name desc]
@@ -121,7 +125,6 @@
 
   - name: pipeline_opty
     type: single_value
-    model: c2c_model
     explore: camp_hdr
     dimensions: [opty_hdr1.pipeline_stage]
     measures: [opty_hdr1.Opportunity_count]
@@ -136,7 +139,7 @@
     limit: 500
     total: true
     show_single_value_title: true
-    single_value_title: '# Of Pipeline Opportunities'
+    single_value_title: '# Of Open Opportunities'
     show_comparison: false
 
     
@@ -159,7 +162,6 @@
   - name: opty_to_orders
     title: Opportunities to Orders Conversion 
     type: looker_line
-    model: demo
     explore: camp_hdr
     dimensions: [opty_hdr1.year, opty_hdr1.quarter]
     measures: [opty_hdr1.Booked_Orders, opty_hdr1.Opportunity_count]
@@ -169,7 +171,7 @@
       expression: ${opty_hdr1.Booked_Orders}/${opty_hdr1.Opportunity_count}*100
       value_format: 0.##\%
     hidden_fields: [opty_hdr1.Booked_Orders, opty_hdr1.Opportunity_count]
-    sorts: [opty_hdr1.year desc, opty_hdr1.quarter desc]
+    sorts: [opty_hdr1.year , opty_hdr1.quarter ]
     limit: 500
     stacking: ''
     colors: ['#62bad4', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f',
@@ -182,10 +184,10 @@
     show_view_names: false
     limit_displayed_rows: false
     y_axis_combined: false
-    show_y_axis_labels: true
+    show_y_axis_labels: false
     show_y_axis_ticks: true
     y_axis_tick_density: default
-    show_x_axis_label: true
+    show_x_axis_label: false
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear

@@ -18,9 +18,9 @@
 
   - measure: Opportunity_Revenue
     type: sum
+    hidden: true
     value_format: '$0.##,, " M"'
     sql: ${opportunity_amount}
-    drill_fields: []
     links: 
     - label: Opportunity Details
       url: /dashboards/c2c_model::opportunity
@@ -50,6 +50,7 @@
     sql: ${TABLE}.NAME
     
   - dimension: Opportunity_Name
+    label: 'Opportunity Name'
     type: string
     sql: ${name}
   
@@ -60,7 +61,7 @@
   
   - measure: Opportunity__revenue
     type: sum
-    label: 'Opportunity revenue'
+    label: 'Opportunity Amount'
     hidden: true
     value_format: '$#,###'
     sql: ${opty_revenue}
@@ -79,7 +80,6 @@
     label: 'Opportunity revenue'
     value_format: '$0.##,, " M"'
     sql: ${opty_revenue}
-    drill_fields: []
     links: 
     - label: Opportunity Details
       url: /dashboards/c2c_model::opportunity
@@ -87,11 +87,12 @@
    
   - measure: revenue_____
     label: 'Opportunity revenue'
-    type: sum
+    type: sum                     # opty revenue for executive dashboard
     hidden: true
-    value_format:  '$#,###,,"M"'
+    value_format:  '$#0.00,,"M"'
     sql: ${opty_revenue}
-    drill_fields: []
+    drill_fields: [opty_hdr1.year, opty_hdr1.quarter,camp_hdr.campaign, opty_hdr1.Opportunity_Name, opty_hdr1.state,
+                   opty_hdr1.pipeline_type, opty_hdr1.pipeline_stage,opty_hdr1.Opportunity__revenue]
     links: 
     - label: Opportunity Details
       url: /dashboards/c2c_model::opportunity
@@ -103,7 +104,6 @@
     type: sum
     value_format: '$0.##,, " M"'
     sql: ${opty_revenue}
-    drill_fields: []
     links:
     - label: Order details
       url: /dashboards/c2c_model::orders
@@ -189,12 +189,15 @@
     filters: 
        pipeline: 'Qualify'
        
+ 
+    
   
        
+
       
 
   - dimension: state
-    label: 'State Names'
+    label: 'State Name'
     type: string
     sql: ${TABLE}.STATE
     
@@ -208,6 +211,7 @@
   - measure: Opportunity_count
     label: 'Opportunity Count'
     type: count
+    drill_fields: [opty_hdr1.Opportunity_Name,pipeline,opty_hdr1.year,quarter,opty_hdr1.state]
     
   - measure: Opportunities
     label: '# of Opportunities'
