@@ -261,6 +261,7 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
+    label_rotation: 360
     show_null_labels: false
     listen:
       Year: camp_hdr.year
