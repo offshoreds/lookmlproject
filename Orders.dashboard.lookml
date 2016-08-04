@@ -69,11 +69,14 @@
     show_comparison: false
     
   - name: Orders_By_Month
-    title: 'Booked Orders By Month'
+    title: 'Booked Orders - Trailing 12 Months'
     type: looker_line
+  
     explore: camp_hdr
     dimensions: [order_summary.order_month]
     measures: [order_summary.Booked_Orders]
+    filters:
+      order_summary.order_month: 15 months
     sorts: [order_summary.order_month desc]
     limit: 500
     total: true

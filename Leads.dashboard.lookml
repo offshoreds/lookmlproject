@@ -5,7 +5,7 @@
     - elements: [Total_Inquiries,Pending_Leads,Total_Qualified_Leads,Rejected_leads]
       height: 110
   
-    - elements: [Top_5_Leads_By_campaign,Top_5_Leads_By_Objective,Top_5_Leads_By_Program]
+    - elements: [Top_5_Leads_By_campaign,Top_5_Leads_By_Objective]
       height: 330
     
     - elements: [Leads_By_industry,Inquiries_To_Leads_By_Year]
@@ -108,6 +108,7 @@
     
     
   - name: Top_5_Leads_By_campaign
+    title: 'Top  Campaigns'
     type: looker_bar
     explore: camp_hdr
     dimensions: [camp_hdr.campaign]
@@ -142,6 +143,7 @@
     
     
   - name: Top_5_Leads_By_Objective
+    title: 'Campaign Objective' 
     type: looker_bar
     explore: camp_hdr
     dimensions: [camp_hdr.objective]
@@ -177,39 +179,7 @@
     
     
   
-  - name: Top_5_Leads_By_Program
-    type: looker_bar
-    explore: camp_hdr
-    dimensions: [camp_hdr.program_name]
-    measures: [campaign_summary.Total__Leads]
-    sorts: [campaign_summary.Total__Leads desc]
-    limit: 5
-    total: true
-    stacking: ''
-    colors: ['#bebada', '#ffed6f', '#bebada', '#fb8072', '#80b1d3', '#fdb462', '#b3de69',
-      '#fccde5', '#d9d9d9', '#bc80bd', '#ccebc5', '#a3a3ff']
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    limit_displayed_rows: false
-    y_axis_combined: true
-    show_y_axis_labels: false
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    show_null_labels: false
-    listen:
-      Year: camp_hdr.year
-      Quarter:  campaign_summary.quarter
-      Parent Campaign: camp_hdr.parent_campaign
-      Campaign: camp_hdr.campaign
-      
+
     
     
   
@@ -236,6 +206,7 @@
   
   
   - name: Inquiries_To_Leads_By_Year
+    title: 'Inquiries To Leads Conversion'
     type: looker_column
     explore: camp_hdr
     dimensions: [camp_hdr.year, campaign_summary.quarter]
@@ -271,7 +242,7 @@
       
       
   - name: Leads_By_industry
-    title: 'Leads Over Industry'
+    title: 'Leads By Industry'
     type: looker_bar
     explore: camp_hdr
     dimensions: [camp_hdr.industry]
