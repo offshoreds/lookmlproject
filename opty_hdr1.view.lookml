@@ -35,6 +35,7 @@
 
   - dimension: isclosed
     type: string
+    hidden: true
     label: 'Closed Opportunities'
     sql: ${TABLE}.ISCLOSED
 

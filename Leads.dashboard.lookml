@@ -241,6 +241,8 @@
       Campaign: camp_hdr.campaign
       
       
+  
+        
   - name: Leads_By_industry
     title: 'Leads By Industry'
     type: looker_bar

@@ -104,6 +104,7 @@
 
   - dimension: in_progress_leads
     type: number
+    hidden: true
     sql: ${TABLE}.IN_PROGRESS_LEADS
     
   - measure: in_progress_leads_count
@@ -350,6 +351,7 @@
   
   - measure: in_progress
     type: sum
+    hidden: true
     label: 'Inprogress Leads'
     value_format: '$0.##,, " M"'
     sql: ${TABLE}.SOURCED_REVENUE+${TABLE}.ASSISTED_REVENUE

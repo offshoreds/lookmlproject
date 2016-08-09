@@ -13,22 +13,13 @@
     type: string
     sql: ${TABLE}.CAMPAIGN_ID
     
-    
   - dimension: industry
+    label: 'Industry'
     type: string
-    sql: |
-        case when ${program_name} = 'Alexandira Initiative'  THEN 'Radio/TV Stations'
-            when ${program_name} = 'Balam Garden' then 'Automotive'
-            when ${program_name} = 'Bartz Events' then 'Construction'
-            when ${program_name} = 'Impressario'then 'Defense Aerospace'
-            when ${program_name}= 'Knock You' then 'Music Production'
-            when ${program_name} = 'Make the Goers Goners' then 'Information Technology'
-             when ${program_name}= 'Midgard' then 'Transportation'
-             when ${program_name} = 'Rosa' then 'Printing & Publishing'
-             when ${program_name} = 'TimeKompression' then 'Retail Sales'
-            else 'Steel Production'
-           
-        END
+    sql: ${TABLE}.industry
+    
+    
+ 
   
   - dimension: objective
     label: 'Campaign Objective'
