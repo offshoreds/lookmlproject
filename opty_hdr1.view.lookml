@@ -139,6 +139,7 @@
     
   - dimension: pipeline_type
     type: string
+    hidden: true
     label: 'Pipeline Type'
     sql: ${TABLE}.pipeline_type
     

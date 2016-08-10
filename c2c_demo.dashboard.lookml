@@ -217,7 +217,7 @@
       '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
     show_value_labels: false
     label_density: 25
-    font_size: '9'
+    font_size: '12'
     hide_legend: true
     show_view_names: false
     limit_displayed_rows: false
@@ -230,7 +230,7 @@
     x_axis_scale: ordinal
     ordering: none
     show_null_labels: false
-    show_totals_labels: false
+    show_totals_labels: true
     show_silhouette: false
     totals_color: '#808080'
     x_padding_left: 112
@@ -253,7 +253,7 @@
       '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
     show_value_labels: false
     label_density: 25
-    font_size: '9'
+    font_size: '12'
     hide_legend: true
     show_view_names: false
     limit_displayed_rows: false
@@ -266,7 +266,7 @@
     x_axis_scale: ordinal
     ordering: none
     show_null_labels: false
-    show_totals_labels: false
+    show_totals_labels: true
     show_silhouette: false
     totals_color: '#808080'
     x_padding_left: 112
