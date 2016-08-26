@@ -2,23 +2,11 @@
   sql_table_name: C2CDB.ORDER_SUMMARY
   fields:
 
-  
-  - measure: Booked_Revenue
-    label: 'Booked Revenue'
-    type: sum
-    sql: ${ordersrevenue}
-    value_format: '$#,###'
+# DIMENSIONS #
     
   - dimension: ordersrevenue
     hidden: true
     sql: ${TABLE}.revenue
-    
-  - measure: Amount
-    hidden: true
-    type: sum
-    sql: ${ordersrevenue}
-    value_format: '$#,###'
-    
     
   - dimension: camp_id
     hidden: true
@@ -30,13 +18,10 @@
     type: date
     sql: ${TABLE}.order_date
     
-    
   - dimension: order_month
     label: 'Order month'
     type: date_month
     sql: ${TABLE}.order_date
-    
-    
     
   - dimension: shipped_date
     label: 'Shipped Date'
@@ -63,23 +48,11 @@
     type: number
     sql: ${TABLE}.ORDER_CYCLE_DAYS
   
-  - measure: ORDER_CYCLE_DAYS
-    label: 'Average Order Cycle Days'
-    type: avg
-    sql: ${ORDER_CYCLE}
-  
   - dimension: ONTIME_DELIVERY
     type: string
     hidden: true
     sql: ${TABLE}.ONTIME_DELIVERY 
     
-  - measure: ONTIME_DELIVERY_ratio
-    label: 'Ontime Delivery Ratio'
-    type: count_distinct
-    sql: ${row_wid}
-    filters:
-       ONTIME_DELIVERY: 'Y'
-  
   - dimension: opportunity_name
     type: string
     label: 'Opportunity'
@@ -104,9 +77,38 @@
     label: 'Year'
     type: string
     sql: ${TABLE}.YEAR
-
+    
+  - measure: ORDER_CYCLE_DAYS
+    label: 'Average Order Cycle Days'
+    type: avg
+    sql: ${ORDER_CYCLE}
+  
+  - measure: Booked_Revenue
+    label: 'Booked Revenue'
+    type: sum
+    sql: ${ordersrevenue}
+    value_format: '$#,###'
+    
+  - measure: Amount
+    hidden: true
+    type: sum
+    sql: ${ordersrevenue}
+    value_format: '$#,###'
+    
+  - measure: ONTIME_DELIVERY_ratio
+    label: 'Ontime Delivery Ratio'
+    type: count_distinct
+    sql: ${row_wid}
+    filters:
+       ONTIME_DELIVERY: 'Y'
+       
   - measure: Booked_Orders
     type: count
-    drill_fields: [order_summary.opportunity_name,order_summary.order_date,order_summary.order_status]
+    drill_fields: details 
     
   
+  sets:
+   details: 
+    - order_summary.opportunity_name
+    - order_summary.order_date
+    - order_summary.order_status

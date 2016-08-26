@@ -2,17 +2,23 @@
   sql_table_name: C2CDB.PIPELINE
   fields:
 
-  - measure: booked_order
-    label: 'Booked Orders'
-    type: sum
-    sql: ${TABLE}.BOOKED_ORDER
+ # DIMENSIONS #
+  - dimension: Opportunity_count
+    label: 'Opportunity Count'
+    type: string
+    sql: ${TABLE}.OPTY_COUNT
+  
+  
+  - dimension: quarter
+    label: 'Quarter'
+    type: string
+    sql: ${TABLE}.QUARTER
 
-  - measure: booked_revenue
-    label: 'Booked Revenue'
-    type: sum
-    sql: ${TABLE}.BOOKED_REVENUE
-    value_format: '$0.##,, " M"'
-
+  - dimension: year
+    label: 'Year'
+    type: string
+    sql: ${TABLE}.YEAR
+  
   - dimension: campaign_flg
     hidden: true
     type: string
@@ -22,6 +28,13 @@
     hidden: true
     type: string
     sql: ${TABLE}.CAMPID
+   
+  #MEASURES#
+  
+  
+
+
+    
     
   - measure: Marketing_Opportunity_Revenue
     label: 'Marketing Opportunity Revenue'
@@ -68,28 +81,29 @@
       campaign_flg: 'N'
     value_format: '$0.##,, " M"'
 
-  - dimension: Opportunity_count
-    label: 'Opportunity Count'
-    type: string
-    sql: ${TABLE}.OPTY_COUNT
+
 
   - measure: Opportunity_revenue
     label: 'Opportunity Revenue'
     type: sum
     sql: ${TABLE}.OPTY_REVENUE
     value_format: '$0.##,, " M"'
+   
+    
+    
+       
+  - measure: booked_order
+    label: 'Booked Orders'
+    type: sum
+    sql: ${TABLE}.BOOKED_ORDER
 
-  - dimension: quarter
-    label: 'Quarter'
-    type: string
-    sql: ${TABLE}.QUARTER
-
-  - dimension: year
-    label: 'Year'
-    type: string
-    sql: ${TABLE}.YEAR
+  - measure: booked_revenue
+    label: 'Booked Revenue'
+    type: sum
+    sql: ${TABLE}.BOOKED_REVENUE
+    value_format: '$0.##,, " M"'
 
   - measure: count
     hidden: true
     type: count
-    drill_fields: []
+    

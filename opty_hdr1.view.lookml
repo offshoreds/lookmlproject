@@ -2,31 +2,13 @@
   sql_table_name: C2CDB.OPTY_HDR1
   fields:
   
+  # DIMENSIONS #
+  
   - dimension: opportunity_amount
     hidden: true
     type: number
     sql: ${TABLE}.AMOUNT
   
-  
-  
-  - measure: Amount
-    type: sum
-    hidden: true
-    value_format: '$0.##,, " M"'
-    sql: ${opportunity_amount}
-    drill_fields: []
-
-  - measure: Opportunity_Revenue
-    type: sum
-    hidden: true
-    value_format: '$0.##,, " M"'
-    sql: ${opportunity_amount}
-    links: 
-    - label: Opportunity Details
-      url: /dashboards/c2c_model::opportunity
-      
-   
-    
       
   - dimension: camp_id
     type: string
@@ -59,59 +41,18 @@
     type: number
     hidden: true
     sql: ${TABLE}.REVENUE
-  
-  - measure: Opportunity__revenue
-    type: sum
-    label: 'Opportunity Amount'
-    hidden: true
-    value_format: '$#,###'
-    sql: ${opty_revenue}
     
-  - measure: Opty_revenue
-    type: sum
-    label: 'Revenue'
-    hidden: true
-    value_format: '$0.##,, " M"'
-    sql: ${opty_revenue}
+  - dimension: state
+    label: 'State Name'
+    type: string
+    sql: ${TABLE}.STATE
     
-      
-      
-  - measure: revenue__
-    type: sum
-    label: 'Opportunity revenue'
-    value_format: '$0.##,, " M"'
-    sql: ${opty_revenue}
-    links: 
-    - label: Opportunity Details
-      url: /dashboards/c2c_model::opportunity
-      
-   
-  - measure: revenue_____
-    label: 'Opportunity revenue'
-    type: sum                     # opty revenue for executive dashboard
-    hidden: true
-    value_format:  '$#0.00,,"M"'
-    sql: ${opty_revenue}
-    drill_fields: [opty_hdr1.year, opty_hdr1.quarter,camp_hdr.campaign, opty_hdr1.Opportunity_Name, opty_hdr1.state,
-                   opty_hdr1.pipeline_type, opty_hdr1.pipeline_stage,opty_hdr1.Opportunity__revenue]
-    links: 
-    - label: Opportunity Details
-      url: /dashboards/c2c_model::opportunity
-      
- 
- 
-
-  - measure: Booked_Revenue
-    type: sum
-    value_format: '$0.##,, " M"'
-    sql: ${opty_revenue}
-    links:
-    - label: Order details
-      url: /dashboards/c2c_model::orders
-      
-
     
-
+  - dimension: State_
+    type: string
+    hidden: true
+    sql: ${state}
+    
   - dimension: row_wid
     type: string
     hidden: true
@@ -142,6 +83,57 @@
     hidden: true
     label: 'Pipeline Type'
     sql: ${TABLE}.pipeline_type
+    
+  
+  # MEASURES #
+  
+  - measure: Opportunity__revenue
+    type: sum
+    label: 'Opportunity Amount'
+    hidden: true
+    value_format: '$#,###'
+    sql: ${opty_revenue}
+    
+  - measure: Opty_revenue
+    type: sum
+    label: 'Revenue'
+    hidden: true
+    value_format: '$0.##,, " M"'
+    sql: ${opty_revenue}
+    
+      
+  - measure: revenue__
+    type: sum
+    label: 'Opportunity revenue'
+    value_format: '$0.##,, " M"'
+    sql: ${opty_revenue}
+    links: 
+    - label: Opportunity Details
+      url: /dashboards/c2c_model::opportunity
+      
+   
+  - measure: revenue_____
+    label: 'Opportunity revenue'
+    type: sum                     # opty revenue for executive dashboard
+    hidden: true
+    value_format:  '$#0.00,,"M"'
+    sql: ${opty_revenue}
+    drill_fields: details1 
+    links: 
+    - label: Opportunity Details
+      url: /dashboards/c2c_model::opportunity
+      
+ 
+  - measure: Booked_Revenue
+    type: sum
+    hidden: true
+    value_format: '$0.##,, " M"'
+    sql: ${opty_revenue}
+    links:
+    - label: Order details
+      url: /dashboards/c2c_model::orders
+      
+
     
   - measure: Booked_Orders
     type: count_distinct
@@ -191,32 +183,51 @@
     filters: 
        pipeline: 'Qualify'
        
- 
     
-  
-       
-
-      
-
-  - dimension: state
-    label: 'State Name'
-    type: string
-    sql: ${TABLE}.STATE
-    
-    
-  - dimension: State_
-    type: string
+  - measure: Amount
+    type: sum
     hidden: true
-    sql: ${state}
-    
+    value_format: '$0.##,, " M"'
+    sql: ${opportunity_amount}
+    drill_fields: []
 
+  - measure: Opportunity_Revenue
+    type: sum
+    hidden: true
+    value_format: '$0.##,, " M"'
+    sql: ${opportunity_amount}
+    links: 
+    - label: Opportunity Details
+      url: /dashboards/c2c_model::opportunity
+      
+  
   - measure: Opportunity_count
     label: 'Opportunity Count'
     type: count
-    drill_fields: [opty_hdr1.Opportunity_Name,pipeline,opty_hdr1.year,quarter,opty_hdr1.state]
+    drill_fields: details2 
     
   - measure: Opportunities
     label: '# of Opportunities'
     hidden: true
     type: count
     
+    
+  sets: 
+    details1:
+     - opty_hdr1.year
+     - opty_hdr1.quarter
+     - camp_hdr.campaign
+     - opty_hdr1.Opportunity_Name
+     - opty_hdr1.state
+     - opty_hdr1.pipeline_type
+     - opty_hdr1.pipeline_stage
+     - opty_hdr1.Opportunity__revenue
+    
+    details2: 
+     - opty_hdr1.Opportunity_Name
+     - pipeline
+     - opty_hdr1.year
+     - quarter
+     - opty_hdr1.state
+    
+   

@@ -6,6 +6,9 @@
       height: 110
     - elements: [Campaign_Effectiveness,Top_5_Campaigns ]
       height: 330
+    - elements: [line_of_business,Top_Campaign_Performance ]
+      height: 330
+      
     - elements: [Campaign_Details ]
       height: 380
 
@@ -227,5 +230,77 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
+      
+      
+  - name: line_of_business
+    title: 'Campaign Profile Criteria'
+    type: looker_bar
+    explore: camp_hdr
+    dimensions: [camp_hdr.line_of_business]
+    measures: [opty_hdr1.revenue__]
+    sorts: [opty_hdr1.revenue__ desc]
+    limit: 500
+    total: true
+    stacking: ''
+    colors: ['#62bad4', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
+      '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: false
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_labels: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+  
+  
+  - name: Top_Campaign_Performance
+    title: 'Top Campaigns Performance By Orders'
+    type: looker_bar
+    explore: camp_hdr
+    dimensions: [camp_hdr.campaign]
+    measures: [campaign_summary.Booked_Orders]
+    sorts: [campaign_summary.Booked_Orders desc]
+    limit: 5
+    stacking: ''
+    colors: ['#62bad4', '#a9c574', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
+      '#c5c6a6', '#82c2ca', '#cee0a0', '#928fb4', '#9fc190']
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    limit_displayed_rows: false
+    y_axis_combined: true
+    show_y_axis_labels: false
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    show_null_labels: false
+    listen:
+      Year: camp_hdr.year
+      Quarter:  campaign_summary.quarter
+      Parent Campaign: camp_hdr.parent_campaign
+      Campaign: camp_hdr.campaign
+      Campaign Type: camp_hdr.Campaign_Type
+
     
 

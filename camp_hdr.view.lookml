@@ -2,6 +2,11 @@
   sql_table_name: C2CDB.CAMP_HDR
   fields:
 
+
+
+# DIMENSIONS #
+
+
   - dimension: campaign
     label: 'Campaign'
     type: string
@@ -18,6 +23,10 @@
     type: string
     sql: ${TABLE}.industry
     
+  - dimension: line_of_business
+    label: 'Line Of Buniess'
+    type: string
+    sql: ${TABLE}.line_of_business
     
  
   
@@ -35,19 +44,27 @@
     label: 'Campaign Program'
     type: string
     sql: ${TABLE}.PROGRAM_NAME
-    
-  - measure: Spend
-    label: 'Amount Spend'
-    type: sum
-    value_format: '$#,###'
-    sql: ${TABLE}.SPEND
-    
+  
+  
   - dimension: Campaign_Type
     label: 'Campaign Type'
     type: string
     sql: ${TABLE}.TYPE
     
-        
+  - dimension: year
+    label: 'Campaign Year'
+    type: string
+    sql: ${TABLE}.YEAR
+
+#   MEASURES  #
+
+
+  - measure: Spend
+    label: 'Amount Spend'
+    type: sum
+    hidden: true
+    value_format: '$#,###'
+    sql: ${TABLE}.SPEND
     
     
   - measure: Event
@@ -86,28 +103,28 @@
     - label: Campaign Details
       url: /dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={"Year":[{"type":"%3D","values":[{"constant":""},{}],"id":0}],"Quarter":[{"type":"%3D","values":[{"constant":""},{}],"id":1}],"Parent Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":2}],"Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":3}],"Campaign Type":[{"type":"%3D","values":[{"constant":""},{}],"id":4}]}
       
-        
-
-  - dimension: year
-    label: 'Campaign Year'
-    type: string
-    sql: ${TABLE}.YEAR
     
 
   - measure: Campaign_Count
     label: 'Campaign Count'
     type: count
-    drill_fields: [camp_hdr.Campaign_Type, camp_hdr.parent_campaign, camp_hdr.campaign
-                  ,campaign_summary.campaign_cost, campaign_summary.campaign_target, campaign_summary.Total__Leads,
-                    campaign_summary.Opportunities, campaign_summary.Booked_Orders, 
-                    campaign_summary.opty__revenue,
-                    campaign_summary.booked___revenue]
-    
+    drill_fields: detail
     links: 
     - label: Campaign Details
       url: /dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={"Year":[{"type":"%3D","values":[{"constant":""},{}],"id":0}],"Quarter":[{"type":"%3D","values":[{"constant":""},{}],"id":1}],"Parent Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":2}],"Campaign":[{"type":"%3D","values":[{"constant":""},{}],"id":3}],"Campaign Type":[{"type":"%3D","values":[{"constant":""},{}],"id":4}]}
       
     
-
+  sets:
+    detail:
+    - camp_hdr.Campaign_Type
+    - camp_hdr.parent_campaign
+    - camp_hdr.campaign
+    - campaign_summary.campaign_cost
+    - campaign_summary.campaign_target
+    - campaign_summary.Total__Leads
+    - campaign_summary.Opportunities
+    - campaign_summary.Booked_Orders
+    - campaign_summary.opty__revenue
+    - campaign_summary.booked___revenue
     
 

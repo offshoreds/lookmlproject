@@ -6,8 +6,10 @@
   rows:
     - elements: [Campaign_Count, Lead_Count, Opportunity_Count, Opportunity_Revenue, Booked_revenue ]
       height: 110
+    - elements: [Pipeline,Booked_Revenue]
+      height: 80
     - elements: [Total Pipeline  ,Total Booked Revenue]
-      height: 140
+      height: 120
     - elements: [Opportunity_Revenue_,Booked_Revenue_]
       height: 330
     
@@ -17,7 +19,7 @@
       height: 330
    
     - elements: [MarketingGeneratedCaption]
-      height: 110
+      height: 80
     - elements: [By_Campaign_Type,By_Segment,By_Objective]
       height: 300
   
@@ -53,13 +55,14 @@
   - name: MarketingGeneratedCaption 
     type: single_value
     explore: camp_hdr
-    font_size: 500%
     embed_style:
       background_color: "#7F889B"
     dynamic_fields:
     - table_calculation: calculation_1
       label: Calculation 1
       expression: 'concat("Opportunity Revenue: $",round(${opty_hdr1.Opportunity__revenue}/1000000,2),"M")'
+    custom_color_enabled: true
+    custom_color: '#7d7676'
     hidden_fields: [opty_hdr1.Opportunity__revenue]
     measures: [opty_hdr1.Opportunity__revenue]
     sorts: [opty_hdr1.Opportunity__revenue]
@@ -206,7 +209,7 @@
       campaign: camp_hdr.campaign
       
   - name: Total Pipeline  
-    title: Total Pipeline
+    title: ''
     type: looker_bar
     explore: pipeline
     measures: [pipeline.Marketing_Opportunity_Revenue, pipeline.Other_Oportunity_Revenue]
@@ -230,7 +233,7 @@
     x_axis_scale: ordinal
     ordering: none
     show_null_labels: false
-    show_totals_labels: true
+    show_totals_labels: false
     show_silhouette: false
     totals_color: '#808080'
     x_padding_left: 112
@@ -242,7 +245,7 @@
       
 
   - name: Total Booked Revenue
-    title: Total Booked Revenue
+    title: ''
     type: looker_bar
     explore: pipeline
     measures: [pipeline.Marketing_booked_Revenue, pipeline.other_booked_Revenue]
@@ -266,7 +269,7 @@
     x_axis_scale: ordinal
     ordering: none
     show_null_labels: false
-    show_totals_labels: true
+    show_totals_labels: false
     show_silhouette: false
     totals_color: '#808080'
     x_padding_left: 112
@@ -483,13 +486,58 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
+      
+
+      
+  - name: Booked_Revenue
+    title: ''
+    type: single_value
+    measures: [pipeline.booked_revenue]
+    explore: pipeline
+    dynamic_fields:
+    - table_calculation: calculation_1
+      label: Calculation 1
+      expression: 'concat("Total Booked Revenue: $",round(${pipeline.booked_revenue}/1000000,2),"M")'
+    sorts: [pipeline.booked_revenue desc]
+    limit: '500'
+    column_limit: '50'
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: true
+    custom_color: '#7d7676'
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    series_types: {}
+    hidden_fields: [pipeline.booked_revenue]
     
-
-
-  
-  
-
-
+    
+  - name: Pipeline
+    title: ''
+    type: single_value
+    measures: [pipeline.Opportunity_revenue]
+    explore: pipeline
+    dynamic_fields:
+    - table_calculation: calculation_1
+      label: Calculation 1
+      expression: 'concat("Total Pipeline: $",round(${pipeline.Opportunity_revenue}/1000000,2),"M")'
+    sorts: [pipeline.Opportunity_revenue desc]
+    limit: '500'
+    column_limit: '50'
+    query_timezone: America/Los_Angeles
+    custom_color_enabled: true
+    custom_color: '#7d7676'
+    font: 50%
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    series_types: {}
+    hidden_fields: [pipeline.Opportunity_revenue]
+    
+ 
 
 
 
