@@ -8,6 +8,7 @@
       height: 110
     - elements: [Pipeline,Booked_Revenue]
       height: 80
+      padding: 10
     - elements: [Total Pipeline  ,Total Booked Revenue]
       height: 120
     - elements: [Opportunity_Revenue_,Booked_Revenue_]
@@ -504,6 +505,7 @@
     query_timezone: America/Los_Angeles
     custom_color_enabled: true
     custom_color: '#7d7676'
+    font-size: 12px
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
@@ -528,7 +530,8 @@
     query_timezone: America/Los_Angeles
     custom_color_enabled: true
     custom_color: '#7d7676'
-    font: 50%
+    font-size: 36px
+    padding: 10 10 10 10
     show_single_value_title: true
     show_comparison: false
     comparison_type: value
@@ -537,34 +540,3 @@
     series_types: {}
     hidden_fields: [pipeline.Opportunity_revenue]
     
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-  
-
-  
-
