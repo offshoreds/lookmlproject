@@ -1,5 +1,5 @@
 - view: campaign_summary
-  sql_table_name: C2CDB.CAMPAIGN_SUMMARY
+  sql_table_name: looker.CAMPAIGN_SUMMARY
   fields:
 
 

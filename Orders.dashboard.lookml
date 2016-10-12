@@ -1,5 +1,5 @@
 - dashboard: orders
-  title: Orders
+  title: C2C-Orders
   layout: grid
   rows:
     - elements: [Inprogress_Orders,Pending_orders,closed_orders,Ontime_delivery_ratio]

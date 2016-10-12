@@ -1,5 +1,5 @@
 - view: camp_hdr
-  sql_table_name: C2CDB.CAMP_HDR
+  sql_table_name: looker.CAMP_HDR
   fields:
 
 

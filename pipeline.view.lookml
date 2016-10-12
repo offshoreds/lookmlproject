@@ -1,5 +1,5 @@
 - view: pipeline
-  sql_table_name: C2CDB.PIPELINE
+  sql_table_name: looker.PIPELINE
   fields:
 
  # DIMENSIONS #

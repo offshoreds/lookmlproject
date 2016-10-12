@@ -1,5 +1,5 @@
 - dashboard: campaign
-  title: Campaign
+  title: C2C-Campaign
   layout: grid
   rows:
     - elements: [Campaign_Cost,Cost_Per_Lead,Customer_Acquisition_Cost,ROI ]

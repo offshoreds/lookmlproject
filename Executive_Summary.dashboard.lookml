@@ -1,5 +1,5 @@
 - dashboard: Executive Summary
-  title: Executive Summary
+  title: C2C-Executive Summary
   layout: grid
   
 

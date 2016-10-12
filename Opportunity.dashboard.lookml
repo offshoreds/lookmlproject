@@ -1,5 +1,5 @@
 - dashboard: opportunity
-  title: Opportunity
+  title: C2C-Opportunity
   layout: grid
   rows:
     - elements: [Total_Opportunities,pipeline_opty,Won_Opty,Closed_lost_opty]

@@ -1,5 +1,5 @@
 - dashboard: leads
-  title: Leads
+  title: C2C-Leads
   layout: grid
   rows:
     - elements: [Total_Inquiries,Pending_Leads,Total_Qualified_Leads,Rejected_leads]

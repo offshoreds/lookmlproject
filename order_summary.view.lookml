@@ -1,5 +1,5 @@
 - view: order_summary
-  sql_table_name: C2CDB.ORDER_SUMMARY
+  sql_table_name: looker.ORDER_SUMMARY
   fields:
 
 # DIMENSIONS #

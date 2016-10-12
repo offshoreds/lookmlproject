@@ -1,5 +1,5 @@
 - view: lead_hdr
-  sql_table_name: C2CDB.LEAD_HDR
+  sql_table_name: looker.LEAD_HDR
   fields:
 
   - dimension: aging

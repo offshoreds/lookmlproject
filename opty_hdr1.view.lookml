@@ -1,5 +1,5 @@
 - view: opty_hdr1
-  sql_table_name: C2CDB.OPTY_HDR1
+  sql_table_name: looker.OPTY_HDR1
   fields:
   
   # DIMENSIONS #
@@ -110,6 +110,17 @@
     links: 
     - label: Opportunity Details
       url: /dashboards/c2c_model::opportunity
+      
+      
+      
+  - measure: Amount_Spend_s
+    type: sum
+    label: 'Amount Spend'
+    value_format: '$0.##,, " M"'
+    sql: ${opty_revenue}*100
+    
+      
+      
       
    
   - measure: revenue_____
