@@ -113,17 +113,7 @@
       
       
       
-  - measure: Amount_Spend_s
-    type: sum
-    label: 'Amount Spend'
-    value_format: '$0.##,, " M"'
-    sql: ${opty_revenue}*7.5
-    links:
-    - label: Spend Detail report
-      url: /explore/Spend_Analytics/spend_transactions?fields=spend_transactions.Invoice_Date,spend_transactions.Invoice_Type,spend_transactions.Invoiced_Quantity_m,spend_transactions.Invoiced_Amount_m
-    
-    
-      
+
       
       
    
