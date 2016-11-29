@@ -4,41 +4,41 @@
   rows:
     - elements: [Total_Inquiries,Pending_Leads,Total_Qualified_Leads,Rejected_leads]
       height: 110
-  
+
     - elements: [Top_5_Leads_By_campaign,Top_5_Leads_By_Objective]
       height: 330
-    
+
     - elements: [Leads_By_industry,Inquiries_To_Leads_By_Year]
       height: 330
-      
-      
+
+
     - elements: [Lead_Details]
       height: 380
-      
+
 
   filters:
   - name: Year
     title: 'Year'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.year
-    
+
   - name: Quarter
     title: 'Quarter'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: campaign_summary.quarter
-    
+
   - name: Parent Campaign
     title: 'Parent campaign'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.parent_campaign
-    
+
   - name: Campaign
     title: 'Campaign'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.campaign
 
   elements:
@@ -56,9 +56,9 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-      
-    
-  
+
+
+
   - name: Pending_Leads
     type: single_value
     explore: camp_hdr
@@ -72,8 +72,8 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-      
-    
+
+
 
   - name: Total_Qualified_Leads
     type: single_value
@@ -88,9 +88,9 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-      
-    
-    
+
+
+
   - name: Rejected_leads
     type: single_value
     explore: camp_hdr
@@ -104,9 +104,9 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-      
-    
-    
+
+
+
   - name: Top_5_Leads_By_campaign
     title: 'Top  Campaigns'
     type: looker_bar
@@ -139,11 +139,11 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-      
-    
-    
+
+
+
   - name: Top_5_Leads_By_Objective
-    title: 'Campaign Objective' 
+    title: 'Campaign Objective'
     type: looker_bar
     explore: camp_hdr
     dimensions: [camp_hdr.objective]
@@ -175,14 +175,14 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-      
-    
-    
-  
 
-    
-    
-  
+
+
+
+
+
+
+
   - name: Lead_Details
     type: table
     explore: camp_hdr
@@ -203,8 +203,8 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-  
-  
+
+
   - name: Inquiries_To_Leads_By_Year
     title: 'Inquiries To Leads Conversion'
     type: looker_column
@@ -239,10 +239,10 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
-      
-      
-  
-        
+
+
+
+
   - name: Leads_By_industry
     title: 'Leads By Industry'
     type: looker_bar
@@ -275,5 +275,4 @@
         Quarter:  campaign_summary.quarter
         Parent Campaign: camp_hdr.parent_campaign
         Campaign: camp_hdr.campaign
-   
-       
+

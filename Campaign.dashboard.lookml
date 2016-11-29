@@ -8,7 +8,7 @@
       height: 330
     - elements: [line_of_business,Top_Campaign_Performance ]
       height: 330
-      
+
     - elements: [Campaign_Details ]
       height: 380
 
@@ -16,32 +16,32 @@
   - name: Year
     title: 'Year'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.year
-    
+
   - name: Quarter
     title: 'Quarter'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: campaign_summary.quarter
-    
+
   - name: Parent Campaign
     title: 'Parent campaign'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.parent_campaign
-    
+
   - name: Campaign
     title: 'Campaign'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.campaign
-    
-    
+
+
   - name: Campaign Type
     title: 'Campaign Type'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.Campaign_Type
 
 
@@ -61,9 +61,9 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    
-    
-    
+
+
+
   - name: Cost_Per_Lead
     type: single_value
     explore: camp_hdr
@@ -78,8 +78,8 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    
-    
+
+
   - name: Customer_Acquisition_Cost
     type: single_value
     explore: camp_hdr
@@ -94,8 +94,8 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    
-    
+
+
   - name: ROI
     title: 'RoI'
     type: single_value
@@ -112,8 +112,8 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-    
-    
+
+
   - name: Top_5_Campaigns
     title: 'Top 5 Campaigns By Opportunity Revenue'
     type: looker_bar
@@ -149,14 +149,14 @@
       Quarter:  campaign_summary.quarter
       Parent Campaign: camp_hdr.parent_campaign
       Campaign Type: camp_hdr.Campaign_Type
-    
-    
-    
- 
-    
- 
-    
-    
+
+
+
+
+
+
+
+
 
   - name: Campaign_Details
     type: table
@@ -178,8 +178,8 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-      
-      
+
+
   - name: Campaign_Effectiveness
     type: looker_column
     explore: camp_hdr
@@ -230,8 +230,8 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-      
-      
+
+
   - name: line_of_business
     title: 'Campaign Profile Criteria'
     type: looker_bar
@@ -266,8 +266,8 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-  
-  
+
+
   - name: Top_Campaign_Performance
     title: 'Top Campaigns Performance By Orders'
     type: looker_bar
@@ -301,6 +301,4 @@
       Parent Campaign: camp_hdr.parent_campaign
       Campaign: camp_hdr.campaign
       Campaign Type: camp_hdr.Campaign_Type
-
-    
 

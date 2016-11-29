@@ -1,7 +1,7 @@
 - dashboard: Executive Summary
   title: C2C-Executive Summary
   layout: grid
-  
+
 
   rows:
     - elements: [Campaign_Count, Lead_Count, Opportunity_Count, Opportunity_Revenue, Booked_revenue ]
@@ -13,47 +13,47 @@
       height: 120
     - elements: [Opportunity_Revenue_,Booked_Revenue_]
       height: 330
-    
+
     - elements: [Campaign_Performance, ROI_By_Campaign_Type]
       height: 330
     - elements: [Sourced_And_Assisted_Revenue,Top_5_Campaigns_By_Booked_Revenue]
       height: 330
-   
+
     - elements: [MarketingGeneratedCaption]
       height: 80
     - elements: [By_Campaign_Type,By_Segment,By_Objective]
       height: 300
-  
+
   filters:
   - name: year
     title: 'Year'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.year
-    
+
   - name: quarter
     title: 'Quarter'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: campaign_summary.quarter
-    
+
   - name: parent campaign
     title: 'Parent campaign'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.parent_campaign
-    
+
   - name: campaign
     title: 'Campaign'
     type: field_filter
-    explore: camp_hdr 
+    explore: camp_hdr
     field: camp_hdr.campaign
-    
+
 
 
   elements:
-  
-  - name: MarketingGeneratedCaption 
+
+  - name: MarketingGeneratedCaption
     type: single_value
     explore: camp_hdr
     embed_style:
@@ -68,7 +68,7 @@
     measures: [opty_hdr1.Opportunity__revenue]
     sorts: [opty_hdr1.Opportunity__revenue]
     limit: 500
-    
+
     show_single_value_title: true
     show_comparison: false
     single_value_title: (Marketing Generated)
@@ -81,8 +81,8 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-      
-    
+
+
   - name: Campaign_Count
     type: single_value
     explore: camp_hdr
@@ -92,14 +92,14 @@
     show_single_value_title: true
     single_value_title: '# Campaigns'
     show_comparison: false
-    
+
     listen:
       year: camp_hdr.year
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
+
+
   - name: Lead_Count
     type: single_value
     explore: camp_hdr
@@ -114,9 +114,9 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
-    
+
+
+
   - name: Opportunity_Count
     type: single_value
     explore: camp_hdr
@@ -131,8 +131,8 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
+
+
   - name: Opportunity_Revenue
     type: single_value
     explore: camp_hdr
@@ -141,15 +141,15 @@
     limit: 500
     show_single_value_title: true
     single_value_title: Opportunity Revenue
-   
+
     show_comparison: false
     listen:
       year: camp_hdr.year
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
+
+
   - name: Booked_revenue
     type: single_value
     explore: camp_hdr
@@ -164,8 +164,8 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-      
-  
+
+
 
   - name: Opportunity_Revenue_
     type: looker_geo_choropleth
@@ -181,14 +181,14 @@
     note:
       text: '(Marketing Generated)'
       state:  collapsed
-      display: above 
+      display: above
     listen:
       year: camp_hdr.year
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
+
+
   - name: Booked_Revenue_
     type: looker_geo_choropleth
     explore: camp_hdr
@@ -202,14 +202,14 @@
     note:
       text: '(Marketing Generated)'
       state:  collapsed
-      display: above 
+      display: above
     listen:
       year: camp_hdr.year
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-      
-  - name: Total Pipeline  
+
+  - name: Total Pipeline
     title: ''
     type: looker_bar
     explore: pipeline
@@ -242,8 +242,8 @@
     note:
       text: 'Marketing Generated: 77%'
       state:  collapsed
-      display: below 
-      
+      display: below
+
 
   - name: Total Booked Revenue
     title: ''
@@ -280,8 +280,8 @@
       state:  collapsed
       display: below
 
-    
-    
+
+
   - name: Campaign_Performance
     type: looker_bar
     explore: camp_hdr
@@ -314,8 +314,8 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
+
+
   - name: ROI_By_Campaign_Type
     title: 'RoI By Campaign Type'
     type: looker_line
@@ -356,8 +356,8 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
+
+
   - name: Sourced_And_Assisted_Revenue
     type: looker_bar
     explore: camp_hdr
@@ -393,8 +393,8 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-    
-    
+
+
   - name: Top_5_Campaigns_By_Booked_Revenue
     type: looker_bar
     explore: camp_hdr
@@ -420,17 +420,17 @@
     show_x_axis_ticks: true
     x_axis_scale: ordinal
     y_axis_scale_mode: linear
-    show_null_labels: false 
+    show_null_labels: false
     listen:
       year: camp_hdr.year
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-      
-      
-  
-    
-    
+
+
+
+
+
   - name: By_Campaign_Type
     type: looker_pie
     explore: camp_hdr
@@ -446,9 +446,9 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-      
-    
-  - name: By_Segment  
+
+
+  - name: By_Segment
     type: looker_pie
     explore: camp_hdr
     dimensions: [campaign_summary.segment]
@@ -466,11 +466,11 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-      
- 
 
-    
-    
+
+
+
+
   - name: By_Objective
     type: looker_pie
     explore: camp_hdr
@@ -487,9 +487,9 @@
       quarter:  campaign_summary.quarter
       parent campaign: camp_hdr.parent_campaign
       campaign: camp_hdr.campaign
-      
 
-      
+
+
   - name: Booked_Revenue
     title: ''
     type: single_value
@@ -513,8 +513,8 @@
     show_comparison_label: true
     series_types: {}
     hidden_fields: [pipeline.booked_revenue]
-    
-    
+
+
   - name: Pipeline
     title: ''
     type: single_value
@@ -539,4 +539,3 @@
     show_comparison_label: true
     series_types: {}
     hidden_fields: [pipeline.Opportunity_revenue]
-    

@@ -10,7 +10,7 @@
       height: 380
 
   elements:
-  
+
   - name: Inprogress_Orders
     type: single_value
     explore: camp_hdr
@@ -23,8 +23,8 @@
     show_single_value_title: true
     single_value_title: '# Inprogress Orders'
     show_comparison: false
-  
-  
+
+
   - name: Pending_orders
     type: single_value
     explore: camp_hdr
@@ -51,7 +51,7 @@
     show_single_value_title: true
     single_value_title: '# Closed Orders'
     show_comparison: false
-    
+
   - name: Ontime_delivery_ratio
     type: single_value
     explore: camp_hdr
@@ -67,11 +67,11 @@
     show_single_value_title: true
     single_value_title: 'Ontime Delivery Ratio'
     show_comparison: false
-    
+
   - name: Orders_By_Month
     title: 'Booked Orders - Trailing 12 Months'
     type: looker_line
-  
+
     explore: camp_hdr
     dimensions: [order_summary.order_month]
     measures: [order_summary.Booked_Orders]
@@ -104,7 +104,7 @@
 
 
 
-    
+
   - name: Order_details
     type: table
     explore: camp_hdr
@@ -121,4 +121,3 @@
     truncate_column_names: false
     table_theme: transparent
     limit_displayed_rows: false
-

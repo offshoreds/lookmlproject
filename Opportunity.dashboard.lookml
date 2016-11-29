@@ -4,13 +4,13 @@
   rows:
     - elements: [Total_Opportunities,pipeline_opty,Won_Opty,Closed_lost_opty]
       height: 110
-      
+
     - elements: [Pipeline_All_stages,Opportunity_revenue ]
       height: 330
-    
+
     - elements: [opty_to_orders ]
       height: 330
-      
+
     - elements: [Opportunity_Details]
       height: 380
 
@@ -47,7 +47,7 @@
     y_axis_scale_mode: linear
     show_null_labels: false
 
-    
+
   - name: Opportunity_revenue
     title: QoQ Opportunities
     type: looker_column
@@ -80,8 +80,8 @@
     show_null_labels: false
     show_dropoff: false
 
-  
-    
+
+
   - name: Opportunity_Details
     type: table
     explore: camp_hdr
@@ -95,8 +95,8 @@
     truncate_column_names: false
     table_theme: editable
     limit_displayed_rows: false
-  
-  
+
+
   - name: Total_Opportunities
     type: single_value
     explore: camp_hdr
@@ -108,7 +108,7 @@
     custom_color_enabled: false
     show_single_value_title: true
     show_comparison: false
-    
+
   - name: Closed_lost_opty
     type: single_value
     explore: camp_hdr
@@ -142,7 +142,7 @@
     single_value_title: '# Of Open Opportunities'
     show_comparison: false
 
-    
+
   - name: Won_Opty
     type: single_value
     explore: camp_hdr
@@ -158,9 +158,9 @@
     custom_color_enabled: false
     show_single_value_title: true
     show_comparison: false
-    
+
   - name: opty_to_orders
-    title: Opportunities to Orders Conversion 
+    title: Opportunities to Orders Conversion
     type: looker_line
     explore: camp_hdr
     dimensions: [opty_hdr1.year, opty_hdr1.quarter]
@@ -194,8 +194,7 @@
     point_style: circle_outline
     interpolation: linear
 
-  
-  
 
 
- 
+
+
