@@ -104,7 +104,7 @@
     type: single_value
     explore: camp_hdr
     measures: [campaign_summary.Total_Leads]
-    sorts: [camp_hdr.Leads desc, campaign_summary.Total_Leads desc]
+    sorts: [campaign_summary.Total_Leads desc]
     limit: 500
     show_single_value_title: true
     single_value_title: '# Leads'
@@ -172,7 +172,7 @@
     explore: camp_hdr
     dimensions: [opty_hdr1.state]
     measures: [opty_hdr1.Opportunity_Revenue]
-    sorts: [opty_hdr1.amount desc, opty_hdr1.state]
+    sorts: [opty_hdr1.state]
     limit: 500
     map: usa
     show_view_names: false
@@ -194,7 +194,7 @@
     explore: camp_hdr
     dimensions: [opty_hdr1.State_]
     measures: [opty_hdr1.Booked_Revenue]
-    sorts: [opty_hdr1.revenue desc, opty_hdr1.State_]
+    sorts: [ opty_hdr1.State_]
     limit: 500
     map: usa
     show_view_names: false
@@ -214,7 +214,7 @@
     type: looker_bar
     explore: pipeline
     measures: [pipeline.Marketing_Opportunity_Revenue, pipeline.Other_Oportunity_Revenue]
-    sorts: [pipeline.Marketing_opty_Revenue desc, pipeline.Marketing_Opportunity_Revenue desc]
+    sorts: [pipeline.Marketing_Opportunity_Revenue desc]
     limit: 500
     stacking: normal
     colors: ['#7A8A5E', '#dedcdc', '#929292', '#9fdee0', '#1f3e5a', '#90c8ae', '#92818d',
@@ -436,7 +436,7 @@
     explore: camp_hdr
     dimensions: [camp_hdr.Campaign_Type]
     measures: [campaign_summary.opportunity_revenue]
-    sorts: [campaign_summary.revenue desc, camp_hdr.type, campaign_summary.opportunity_revenue desc]
+    sorts: [campaign_summary.opportunity_revenue desc]
     limit: 500
     value_labels: legend
     inner_radius: 20
@@ -455,7 +455,7 @@
     measures: [campaign_summary.opportunity_revenue]
     filters:
       campaign_summary.segment: -NULL
-    sorts: [campaign_summary.revenue, campaign_summary.segment]
+    sorts: [campaign_summary.segment]
     limit: 500
     value_labels: legend
     colors: ['#307D7E','#CCCD7F', '#8BDBA1']
@@ -476,7 +476,7 @@
     explore: camp_hdr
     dimensions: [camp_hdr.objective]
     measures: [campaign_summary.opportunity_revenue]
-    sorts: [campaign_summary.revenue, camp_hdr.objective]
+    sorts: [camp_hdr.objective]
     limit: 500
     value_labels: legend
     colors: ['#2f8eaa','#8BDBA1', '#307D7E', '#CCCD7F']

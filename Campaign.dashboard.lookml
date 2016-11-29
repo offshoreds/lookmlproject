@@ -84,7 +84,7 @@
     type: single_value
     explore: camp_hdr
     measures: [campaign_summary.customer_acquisition_cost]
-    sorts: [campaign_summary.customer_acquisition_costs desc, campaign_summary.customer_acquisition_cost desc]
+    sorts: [campaign_summary.customer_acquisition_cost desc]
     limit: 500
     show_single_value_title: true
     show_comparison: false
@@ -101,7 +101,7 @@
     type: single_value
     explore: camp_hdr
     measures: [campaign_summary.avg_roi]
-    sorts: [campaign_summary.customer_acquisition_costs desc, campaign_summary.avg_roi desc]
+    sorts: [campaign_summary.avg_roi desc]
     limit: 500
     show_single_value_title: true
     show_comparison: false
