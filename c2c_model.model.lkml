@@ -1,7 +1,7 @@
 connection: "c2c"
 
 label: "C2C"
-
+persist_for: "24 hours"
 # include all the views
 include: "*.view"
 

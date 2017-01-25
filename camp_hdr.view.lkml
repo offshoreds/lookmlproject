@@ -80,8 +80,8 @@ view: camp_hdr {
     }
 
     link: {
-      label: "Campaign Details"
-      url: "/dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={\"Year\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":0}],\"Quarter\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":1}],\"Parent Campaign\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":2}],\"Campaign\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":3}],\"Campaign Type\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":4}]}"
+      label: "Event Campaign Details"
+      url: "/dashboards/c2c_model::campaign?Campaign%20Type=Event"
     }
   }
 
@@ -97,8 +97,8 @@ view: camp_hdr {
     }
 
     link: {
-      label: "Campaign Details"
-      url: "/dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={\"Year\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":0}],\"Quarter\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":1}],\"Parent Campaign\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":2}],\"Campaign\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":3}],\"Campaign Type\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":4}]}"
+      label: "Email Campaign Details"
+      url: "/dashboards/c2c_model::campaign?Campaign%20Type=Email%20Blast"
     }
   }
 
@@ -114,8 +114,8 @@ view: camp_hdr {
     }
 
     link: {
-      label: "Campaign Details"
-      url: "/dashboards/c2c_model::campaign?Year=&Quarter=&Parent Campaign=&Campaign=&Campaign Type=&filter_config={\"Year\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":0}],\"Quarter\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":1}],\"Parent Campaign\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":2}],\"Campaign\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":3}],\"Campaign Type\":[{\"type\":\"%3D\",\"values\":[{\"constant\":\"\"},{}],\"id\":4}]}"
+      label: "Promotion Campaign Details"
+      url: "/dashboards/c2c_model::campaign?Campaign%20Type=Promotion"
     }
   }
 

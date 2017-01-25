@@ -143,13 +143,14 @@ view: opty_hdr1 {
   measure: Booked_Revenue {
     type: sum
     hidden: yes
-    value_format: "$0.##,, \" M\""
+    value_format:  "[>=1000000]$0.00,,\"M\";[>=1000]$0.00,\"K\";$0.00"
     sql: ${opty_revenue} ;;
 
     link: {
       label: "Order details"
       url: "/dashboards/c2c_model::orders"
     }
+    drill_fields: [order_summary.opportunity_name,orders.orders_date,Booked_Revenue]
   }
 
   measure: Booked_Orders {
