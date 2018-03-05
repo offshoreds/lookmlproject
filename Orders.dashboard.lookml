@@ -76,7 +76,7 @@
     dimensions: [order_summary.order_month]
     measures: [order_summary.Booked_Orders]
     filters:
-      order_summary.order_month: 15 months
+      order_summary.order_month: 100 months
     sorts: [order_summary.order_month desc]
     limit: 500
     total: true
